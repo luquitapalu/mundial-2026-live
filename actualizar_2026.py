@@ -20,7 +20,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 
 
-JSON_PATH = 'data/historico.json'
+JSON_PATH = 'data/live.json'
 
 
 # ── Cargar input ────────────────────────────────────────────────────────────
