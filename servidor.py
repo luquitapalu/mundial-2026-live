@@ -22,5 +22,8 @@ class Handler(BaseHTTPRequestHandler):
         response = {'ok': result.returncode == 0, 'log': result.stdout}
         self.wfile.write(json.dumps(response).encode())
 
-print('Servidor corriendo en http://localhost:8001')
-HTTPServer(('localhost', 8001), Handler).serve_forever()
+# DESPUÉS
+import os
+port = int(os.environ.get('PORT', 8001))
+print(f'Servidor corriendo en puerto {port}')
+HTTPServer(('0.0.0.0', port), Handler).serve_forever()
