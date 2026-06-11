@@ -1,0 +1,1135 @@
+{
+  "Argentina": {
+    "mundiales_jugados": 18,
+    "titulos": 3,
+    "mejor_resultado": "Campeón (1978, 1986, 2022)",
+    "goles_historicos": 41,
+    "promedio_gol_historico": 1.52,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Lionel Messi",
+        "goles": 13
+      },
+      {
+        "jugador": "Gabriel Batistuta",
+        "goles": 10
+      },
+      {
+        "jugador": "Diego Maradona",
+        "goles": 8
+      },
+      {
+        "jugador": "Mario Kempes",
+        "goles": 6
+      },
+      {
+        "jugador": "Guillermo Stábile",
+        "goles": 4
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Lionel Messi",
+        "partidos": 26
+      },
+      {
+        "jugador": "Diego Maradona",
+        "partidos": 21
+      },
+      {
+        "jugador": "Javier Mascherano",
+        "partidos": 20
+      },
+      {
+        "jugador": "Ángel Di María",
+        "partidos": 19
+      },
+      {
+        "jugador": "Nicolás Otamendi",
+        "partidos": 18
+      }
+    ]
+  },
+  "Brasil": {
+    "mundiales_jugados": 22,
+    "titulos": 5,
+    "mejor_resultado": "Campeón (1958, 1962, 1970, 1994, 2002)",
+    "goles_historicos": 53,
+    "promedio_gol_historico": 1.92,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Ronaldo",
+        "goles": 15
+      },
+      {
+        "jugador": "Pelé",
+        "goles": 12
+      },
+      {
+        "jugador": "Vavá",
+        "goles": 9
+      },
+      {
+        "jugador": "Jairzinho",
+        "goles": 9
+      },
+      {
+        "jugador": "Rivaldo",
+        "goles": 8
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Cafú",
+        "partidos": 20
+      },
+      {
+        "jugador": "Thiago Silva",
+        "partidos": 19
+      },
+      {
+        "jugador": "Ronaldo",
+        "partidos": 19
+      },
+      {
+        "jugador": "Dunga",
+        "partidos": 18
+      },
+      {
+        "jugador": "Roberto Carlos",
+        "partidos": 17
+      }
+    ]
+  },
+  "Alemania": {
+    "mundiales_jugados": 20,
+    "titulos": 4,
+    "mejor_resultado": "Campeón (1954, 1974, 1990, 2014)",
+    "goles_historicos": 60,
+    "promedio_gol_historico": 2.01,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Miroslav Klose",
+        "goles": 16
+      },
+      {
+        "jugador": "Gerd Müller",
+        "goles": 14
+      },
+      {
+        "jugador": "Jürgen Klinsmann",
+        "goles": 11
+      },
+      {
+        "jugador": "Karl-Heinz Rummenigge",
+        "goles": 9
+      },
+      {
+        "jugador": "Thomas Müller",
+        "goles": 10
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Lothar Matthäus",
+        "partidos": 25
+      },
+      {
+        "jugador": "Miroslav Klose",
+        "partidos": 24
+      },
+      {
+        "jugador": "Uwe Seeler",
+        "partidos": 21
+      },
+      {
+        "jugador": "Thomas Müller",
+        "partidos": 19
+      },
+      {
+        "jugador": "Franz Beckenbauer",
+        "partidos": 18
+      }
+    ]
+  },
+  "Italia": {
+    "mundiales_jugados": 18,
+    "titulos": 4,
+    "mejor_resultado": "Campeón (1934, 1938, 1982, 2006)",
+    "goles_historicos": 41,
+    "promedio_gol_historico": 1.32,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Paolo Rossi",
+        "goles": 9
+      },
+      {
+        "jugador": "Roberto Baggio",
+        "goles": 9
+      },
+      {
+        "jugador": "Christian Vieri",
+        "goles": 9
+      },
+      {
+        "jugador": "Alessandro Altobelli",
+        "goles": 8
+      },
+      {
+        "jugador": "Salvatore Schillaci",
+        "goles": 6
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Paolo Maldini",
+        "partidos": 23
+      },
+      {
+        "jugador": "Fabio Cannavaro",
+        "partidos": 18
+      },
+      {
+        "jugador": "Gianluigi Buffon",
+        "partidos": 17
+      },
+      {
+        "jugador": "Giuseppe Bergomi",
+        "partidos": 16
+      },
+      {
+        "jugador": "Dino Zoff",
+        "partidos": 17
+      }
+    ]
+  },
+  "Francia": {
+    "mundiales_jugados": 16,
+    "titulos": 2,
+    "mejor_resultado": "Campeón (1998, 2018)",
+    "goles_historicos": 43,
+    "promedio_gol_historico": 1.74,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Just Fontaine",
+        "goles": 13
+      },
+      {
+        "jugador": "Kylian Mbappé",
+        "goles": 12
+      },
+      {
+        "jugador": "Thierry Henry",
+        "goles": 6
+      },
+      {
+        "jugador": "Olivier Giroud",
+        "goles": 6
+      },
+      {
+        "jugador": "Antoine Griezmann",
+        "goles": 6
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Hugo Lloris",
+        "partidos": 20
+      },
+      {
+        "jugador": "Antoine Griezmann",
+        "partidos": 19
+      },
+      {
+        "jugador": "Lilian Thuram",
+        "partidos": 16
+      },
+      {
+        "jugador": "Fabien Barthez",
+        "partidos": 17
+      },
+      {
+        "jugador": "Olivier Giroud",
+        "partidos": 16
+      }
+    ]
+  },
+  "España": {
+    "mundiales_jugados": 16,
+    "titulos": 1,
+    "mejor_resultado": "Campeón (2010)",
+    "goles_historicos": 29,
+    "promedio_gol_historico": 1.34,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "David Villa",
+        "goles": 9
+      },
+      {
+        "jugador": "Fernando Hierro",
+        "goles": 5
+      },
+      {
+        "jugador": "Raúl",
+        "goles": 5
+      },
+      {
+        "jugador": "Fernando Torres",
+        "goles": 5
+      },
+      {
+        "jugador": "Emilio Butragueño",
+        "goles": 5
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Sergio Ramos",
+        "partidos": 19
+      },
+      {
+        "jugador": "Iker Casillas",
+        "partidos": 17
+      },
+      {
+        "jugador": "Andrés Iniesta",
+        "partidos": 16
+      },
+      {
+        "jugador": "Xavi Hernández",
+        "partidos": 15
+      },
+      {
+        "jugador": "Sergio Busquets",
+        "partidos": 15
+      }
+    ]
+  },
+  "Inglaterra": {
+    "mundiales_jugados": 16,
+    "titulos": 1,
+    "mejor_resultado": "Campeón (1966)",
+    "goles_historicos": 36,
+    "promedio_gol_historico": 1.43,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Harry Kane",
+        "goles": 13
+      },
+      {
+        "jugador": "Gary Lineker",
+        "goles": 10
+      },
+      {
+        "jugador": "Geoff Hurst",
+        "goles": 5
+      },
+      {
+        "jugador": "Bobby Charlton",
+        "goles": 4
+      },
+      {
+        "jugador": "Michael Owen",
+        "goles": 4
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Peter Shilton",
+        "partidos": 17
+      },
+      {
+        "jugador": "Harry Kane",
+        "partidos": 18
+      },
+      {
+        "jugador": "Bobby Moore",
+        "partidos": 14
+      },
+      {
+        "jugador": "Bobby Charlton",
+        "partidos": 14
+      },
+      {
+        "jugador": "Ashley Cole",
+        "partidos": 13
+      }
+    ]
+  },
+  "Países Bajos": {
+    "mundiales_jugados": 11,
+    "titulos": 0,
+    "mejor_resultado": "Subcampeón (1974, 1978, 2010)",
+    "goles_historicos": 31,
+    "promedio_gol_historico": 1.66,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Johnny Rep",
+        "goles": 7
+      },
+      {
+        "jugador": "Dennis Bergkamp",
+        "goles": 6
+      },
+      {
+        "jugador": "Wesley Sneijder",
+        "goles": 6
+      },
+      {
+        "jugador": "Robin van Persie",
+        "goles": 6
+      },
+      {
+        "jugador": "Arjen Robben",
+        "goles": 6
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Wesley Sneijder",
+        "partidos": 16
+      },
+      {
+        "jugador": "Dirk Kuyt",
+        "partidos": 14
+      },
+      {
+        "jugador": "Arjen Robben",
+        "partidos": 14
+      },
+      {
+        "jugador": "Johan Neeskens",
+        "partidos": 13
+      },
+      {
+        "jugador": "Robin van Persie",
+        "partidos": 13
+      }
+    ]
+  },
+  "Uruguay": {
+    "mundiales_jugados": 14,
+    "titulos": 2,
+    "mejor_resultado": "Campeón (1930, 1950)",
+    "goles_historicos": 31,
+    "promedio_gol_historico": 1.36,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Luis Suárez",
+        "goles": 7
+      },
+      {
+        "jugador": "Óscar Míguez",
+        "goles": 8
+      },
+      {
+        "jugador": "Edinson Cavani",
+        "goles": 6
+      },
+      {
+        "jugador": "Diego Forlán",
+        "goles": 5
+      },
+      {
+        "jugador": "Juan Schiaffino",
+        "goles": 5
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Diego Godín",
+        "partidos": 19
+      },
+      {
+        "jugador": "Luis Suárez",
+        "partidos": 18
+      },
+      {
+        "jugador": "Fernando Muslera",
+        "partidos": 17
+      },
+      {
+        "jugador": "Edinson Cavani",
+        "partidos": 16
+      },
+      {
+        "jugador": "Diego Forlán",
+        "partidos": 14
+      }
+    ]
+  },
+  "Portugal": {
+    "mundiales_jugados": 8,
+    "titulos": 0,
+    "mejor_resultado": "Tercer puesto (1966)",
+    "goles_historicos": 25,
+    "promedio_gol_historico": 1.55,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Eusébio",
+        "goles": 9
+      },
+      {
+        "jugador": "Cristiano Ronaldo",
+        "goles": 8
+      },
+      {
+        "jugador": "Pauleta",
+        "goles": 4
+      },
+      {
+        "jugador": "Pepe",
+        "goles": 2
+      },
+      {
+        "jugador": "João Félix",
+        "goles": 2
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Cristiano Ronaldo",
+        "partidos": 22
+      },
+      {
+        "jugador": "Pepe",
+        "partidos": 13
+      },
+      {
+        "jugador": "Ricardo Carvalho",
+        "partidos": 10
+      },
+      {
+        "jugador": "Nani",
+        "partidos": 9
+      },
+      {
+        "jugador": "Bernardo Silva",
+        "partidos": 9
+      }
+    ]
+  },
+  "Croacia": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Subcampeón (2018)",
+    "goles_historicos": 26,
+    "promedio_gol_historico": 1.41,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Davor Šuker",
+        "goles": 9
+      },
+      {
+        "jugador": "Mario Mandžukić",
+        "goles": 5
+      },
+      {
+        "jugador": "Ivan Perišić",
+        "goles": 6
+      },
+      {
+        "jugador": "Luka Modrić",
+        "goles": 3
+      },
+      {
+        "jugador": "Andrej Kramarić",
+        "goles": 3
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Luka Modrić",
+        "partidos": 22
+      },
+      {
+        "jugador": "Ivan Perišić",
+        "partidos": 16
+      },
+      {
+        "jugador": "Dejan Lovren",
+        "partidos": 13
+      },
+      {
+        "jugador": "Mateo Kovačić",
+        "partidos": 13
+      },
+      {
+        "jugador": "Marcelo Brozović",
+        "partidos": 12
+      }
+    ]
+  },
+  "Bélgica": {
+    "mundiales_jugados": 14,
+    "titulos": 0,
+    "mejor_resultado": "Tercer puesto (2018)",
+    "goles_historicos": 19,
+    "promedio_gol_historico": 1.45,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Romelu Lukaku",
+        "goles": 5
+      },
+      {
+        "jugador": "Eden Hazard",
+        "goles": 3
+      },
+      {
+        "jugador": "Marc Wilmots",
+        "goles": 5
+      },
+      {
+        "jugador": "Jan Ceulemans",
+        "goles": 4
+      },
+      {
+        "jugador": "Kevin De Bruyne",
+        "goles": 2
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Jan Vertonghen",
+        "partidos": 17
+      },
+      {
+        "jugador": "Eden Hazard",
+        "partidos": 13
+      },
+      {
+        "jugador": "Kevin De Bruyne",
+        "partidos": 13
+      },
+      {
+        "jugador": "Toby Alderweireld",
+        "partidos": 12
+      },
+      {
+        "jugador": "Romelu Lukaku",
+        "partidos": 12
+      }
+    ]
+  },
+  "México": {
+    "mundiales_jugados": 17,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (1970, 1986)",
+    "goles_historicos": 14,
+    "promedio_gol_historico": 1.18,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Javier Hernández",
+        "goles": 4
+      },
+      {
+        "jugador": "Luis Hernández",
+        "goles": 4
+      },
+      {
+        "jugador": "Hugo Sánchez",
+        "goles": 1
+      },
+      {
+        "jugador": "Cuauhtémoc Blanco",
+        "goles": 3
+      },
+      {
+        "jugador": "Manuel Negrete",
+        "goles": 2
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Rafael Márquez",
+        "partidos": 19
+      },
+      {
+        "jugador": "Guillermo Ochoa",
+        "partidos": 17
+      },
+      {
+        "jugador": "Andrés Guardado",
+        "partidos": 18
+      },
+      {
+        "jugador": "Antonio Carbajal",
+        "partidos": 11
+      },
+      {
+        "jugador": "Gerardo Torrado",
+        "partidos": 11
+      }
+    ]
+  },
+  "Estados Unidos": {
+    "mundiales_jugados": 11,
+    "titulos": 0,
+    "mejor_resultado": "Tercer puesto (1930)",
+    "goles_historicos": 17,
+    "promedio_gol_historico": 1.05,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Bert Patenaude",
+        "goles": 4
+      },
+      {
+        "jugador": "Landon Donovan",
+        "goles": 5
+      },
+      {
+        "jugador": "Clint Dempsey",
+        "goles": 4
+      },
+      {
+        "jugador": "Brian McBride",
+        "goles": 3
+      },
+      {
+        "jugador": "Christian Pulisic",
+        "goles": 1
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "DaMarcus Beasley",
+        "partidos": 17
+      },
+      {
+        "jugador": "Cobi Jones",
+        "partidos": 12
+      },
+      {
+        "jugador": "Landon Donovan",
+        "partidos": 12
+      },
+      {
+        "jugador": "Clint Dempsey",
+        "partidos": 11
+      },
+      {
+        "jugador": "Tim Howard",
+        "partidos": 10
+      }
+    ]
+  },
+  "Marruecos": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Cuarto puesto (2022)",
+    "goles_historicos": 9,
+    "promedio_gol_historico": 1.05,
+    "top_goleadores_historicos": [
+      {
+        "jugador": "Youssef En-Nesyri",
+        "goles": 3
+      },
+      {
+        "jugador": "Abderrazak Khairi",
+        "goles": 2
+      },
+      {
+        "jugador": "Salaheddine Bassir",
+        "goles": 2
+      },
+      {
+        "jugador": "Hakim Ziyech",
+        "goles": 1
+      },
+      {
+        "jugador": "Sofiane Boufal",
+        "goles": 1
+      }
+    ],
+    "top_partidos_historicos": [
+      {
+        "jugador": "Mehdi Benatia",
+        "partidos": 10
+      },
+      {
+        "jugador": "Romain Saïss",
+        "partidos": 10
+      },
+      {
+        "jugador": "Achraf Hakimi",
+        "partidos": 9
+      },
+      {
+        "jugador": "Hakim Ziyech",
+        "partidos": 9
+      },
+      {
+        "jugador": "Noussair Mazraoui",
+        "partidos": 8
+      }
+    ]
+  },
+  "Corea del Sur": {
+    "mundiales_jugados": 11,
+    "titulos": 0,
+    "mejor_resultado": "Cuarto puesto (2002)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.02,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Sudáfrica": {
+    "mundiales_jugados": 3,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (1998, 2002, 2010)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.91,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Ecuador": {
+    "mundiales_jugados": 4,
+    "titulos": 0,
+    "mejor_resultado": "Octavos de final (2006)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.86,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Argelia": {
+    "mundiales_jugados": 4,
+    "titulos": 0,
+    "mejor_resultado": "Octavos de final (2014)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.88,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Noruega": {
+    "mundiales_jugados": 3,
+    "titulos": 0,
+    "mejor_resultado": "Octavos de final (1998)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.8,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Japón": {
+    "mundiales_jugados": 7,
+    "titulos": 0,
+    "mejor_resultado": "Octavos de final (2002, 2010, 2018, 2022)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Curazao": {
+    "mundiales_jugados": 0,
+    "titulos": 0,
+    "mejor_resultado": "Debutante en 2026",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Suiza": {
+    "mundiales_jugados": 12,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (1934, 1938, 1954)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.2,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Paraguay": {
+    "mundiales_jugados": 8,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (2010)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.9,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Panamá": {
+    "mundiales_jugados": 1,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (2018)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.33,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Costa de Marfil": {
+    "mundiales_jugados": 3,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (2006, 2010, 2014)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.22,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Jordania": {
+    "mundiales_jugados": 0,
+    "titulos": 0,
+    "mejor_resultado": "Debutante en 2026",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Austria": {
+    "mundiales_jugados": 7,
+    "titulos": 0,
+    "mejor_resultado": "Tercer puesto (1954)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.55,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Senegal": {
+    "mundiales_jugados": 3,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (2002)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Nueva Zelanda": {
+    "mundiales_jugados": 2,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (1982, 2010)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.5,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Escocia": {
+    "mundiales_jugados": 8,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (todas)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Irán": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.5,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Honduras": {
+    "mundiales_jugados": 3,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (1982, 2010, 2014)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.33,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Dinamarca": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (1998)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.3,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Egipto": {
+    "mundiales_jugados": 3,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (1934, 1990, 2018)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.4,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Costa Rica": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (2014)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.78,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Colombia": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (2014)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.1,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Ghana": {
+    "mundiales_jugados": 4,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (2010)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.08,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Catar": {
+    "mundiales_jugados": 1,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (2022)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.33,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Polonia": {
+    "mundiales_jugados": 9,
+    "titulos": 0,
+    "mejor_resultado": "Tercer puesto (1974, 1982)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.4,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Australia": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Octavos de final (2006, 2022)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.73,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Cabo Verde": {
+    "mundiales_jugados": 0,
+    "titulos": 0,
+    "mejor_resultado": "Debutante en 2026",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Turquía": {
+    "mundiales_jugados": 5,
+    "titulos": 0,
+    "mejor_resultado": "Tercer puesto (2002)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.45,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Nigeria": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Octavos de final (1994, 1998, 2014)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Uzbekistán": {
+    "mundiales_jugados": 0,
+    "titulos": 0,
+    "mejor_resultado": "Debutante en 2026",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Arabia Saudita": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Octavos de final (1994)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.65,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Camerún": {
+    "mundiales_jugados": 8,
+    "titulos": 0,
+    "mejor_resultado": "Cuartos de final (1990)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.88,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Canadá": {
+    "mundiales_jugados": 0,
+    "titulos": 0,
+    "mejor_resultado": "Sin participaciones previas",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Chequia": {
+    "mundiales_jugados": 1,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (2006)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Bosnia y Herzegovina": {
+    "mundiales_jugados": 1,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (2014)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.33,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Haití": {
+    "mundiales_jugados": 1,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (1974)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.33,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Suecia": {
+    "mundiales_jugados": 12,
+    "titulos": 0,
+    "mejor_resultado": "Subcampeón (1958)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 1.4,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Túnez": {
+    "mundiales_jugados": 6,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0.55,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "Irak": {
+    "mundiales_jugados": 1,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (1986)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "RD Congo": {
+    "mundiales_jugados": 1,
+    "titulos": 0,
+    "mejor_resultado": "Fase de grupos (1974, como Zaire)",
+    "goles_historicos": null,
+    "promedio_gol_historico": 0,
+    "top_goleadores_historicos": [],
+    "top_partidos_historicos": []
+  },
+  "mundial_2026": {
+    "last_update": "2026-06-11T03:42:10.419768+00:00",
+    "matches_played": 0,
+    "total_goals": 0,
+    "standings": {},
+    "top_scorers": [],
+    "results": []
+  }
+}
