@@ -1013,9 +1013,24 @@ function setupStats(data, grupos){
   });
 }
 
+// Estadísticas 2026 calculadas en vivo desde partidos[] (finalizados) y goleadores[]
+function computeStats2026(pais, data){
+  const jugados = (data.partidos || []).filter(p =>
+    p.estado === "finished" && (p.local === pais || p.visitante === pais));
+  let golesEquipo = 0;
+  jugados.forEach(p => {
+    golesEquipo += (p.local === pais ? (p.goles_local || 0) : (p.goles_visitante || 0));
+  });
+  const pj = jugados.length;
+  const topGoleadores = (data.goleadores || [])
+    .filter(g => g.pais === pais)
+    .sort((a, b) => (b.goles || 0) - (a.goles || 0))
+    .slice(0, 3);
+  return { pj, golesEquipo, promedio: pj ? golesEquipo / pj : 0, topGoleadores };
+}
+
 function renderCountryStats(pais, data, bandera){
   const hist = (data.historico || {})[pais];
-  const cur = (data.estadisticas_2026 || {})[pais];
   const cont = document.getElementById("statsContainer");
 
   // Bloque histórico
@@ -1052,43 +1067,25 @@ function renderCountryStats(pais, data, bandera){
     histHtml = `<div class="stat-card historic"><div class="card-title"><span class="ic">🏆</span> Datos históricos</div><div class="empty-mini">Sin datos históricos para esta selección.</div></div>`;
   }
 
-  // Bloque 2026
-  let curHtml;
-  if (cur) {
-    const golead = (cur.top_goleadores || []).map((j, i) =>
-      `<div class="ml-item"><span class="ml-rank">${i+1}</span><span class="ml-name">${esc(j.jugador)}</span><span class="ml-val">${j.goles}<small> G</small></span></div>`
-    ).join("") || `<div class="empty-mini">Sin datos</div>`;
+  // Bloque 2026 — calculado en vivo desde partidos[] y goleadores[]
+  const st = computeStats2026(pais, data);
+  const golead = st.topGoleadores.map((j, i) =>
+    `<div class="ml-item"><span class="ml-rank">${i+1}</span><span class="ml-name">${esc(j.jugador)}</span><span class="ml-val">${j.goles}<small> G</small></span></div>`
+  ).join("") || `<div class="empty-mini">Sin datos disponibles</div>`;
 
-    const minutos = (cur.top_minutos || []).map((j, i) =>
-      `<div class="ml-item"><span class="ml-rank">${i+1}</span><span class="ml-name">${esc(j.jugador)}</span><span class="ml-val">${j.minutos}<small> MIN</small></span></div>`
-    ).join("") || `<div class="empty-mini">Sin datos</div>`;
-
-    curHtml = `
-      <div class="stat-card current">
-        <div class="card-title"><span class="ic">📊</span> Mundial 2026</div>
-        <div class="big-stats">
-          <div class="big-stat"><div class="v">${cur.partidos_jugados ?? 0}</div><div class="k">Jugados</div></div>
-          <div class="big-stat gold"><div class="v">${(cur.promedio_goles ?? 0).toFixed(1)}</div><div class="k">Prom. goles</div></div>
-          <div class="big-stat"><div class="v">${cur.top_goleadores ? cur.top_goleadores.reduce((s,j)=>s+(j.goles||0),0) : "–"}</div><div class="k">Goles equipo</div></div>
-        </div>
-
-        <div class="mini-list">
-          <div class="ml-title">Top 3 goleadores del equipo</div>
-          ${golead}
-        </div>
-        <div class="mini-list">
-          <div class="ml-title">Top 3 jugadores con más minutos</div>
-          ${minutos}
-        </div>
-
-        <div class="cards-row">
-          <div class="card-tag"><span class="card-swatch y"></span><div><div class="v">${cur.amarillas ?? 0}</div><div class="k">Amarillas</div></div></div>
-          <div class="card-tag"><span class="card-swatch r"></span><div><div class="v">${cur.rojas ?? 0}</div><div class="k">Rojas</div></div></div>
-        </div>
-      </div>`;
-  } else {
-    curHtml = `<div class="stat-card current"><div class="card-title"><span class="ic">📊</span> Mundial 2026</div><div class="empty-mini">Esta selección todavía no tiene estadísticas en el torneo.</div></div>`;
-  }
+  const curHtml = `
+    <div class="stat-card current">
+      <div class="card-title"><span class="ic">📊</span> Mundial 2026</div>
+      <div class="big-stats">
+        <div class="big-stat"><div class="v">${st.pj}</div><div class="k">Jugados</div></div>
+        <div class="big-stat gold"><div class="v">${st.promedio.toFixed(2)}</div><div class="k">Prom. goles</div></div>
+        <div class="big-stat"><div class="v">${st.golesEquipo}</div><div class="k">Goles equipo</div></div>
+      </div>
+      <div class="mini-list">
+        <div class="ml-title">Top 3 goleadores del equipo</div>
+        ${golead}
+      </div>
+    </div>`;
 
   cont.innerHTML = `
     <div class="country-header">
