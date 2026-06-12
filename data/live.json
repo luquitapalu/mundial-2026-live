@@ -3124,11 +3124,52 @@
     }
   },
   "mundial_2026": {
-    "last_update": "2026-06-11T03:52:08.741313+00:00",
-    "matches_played": 0,
-    "total_goals": 0,
-    "standings": {},
+    "last_update": "2026-06-12T03:46:44.710372+00:00",
+    "matches_played": 1,
+    "total_goals": 2,
+    "standings": {
+      "GROUP_A": [
+        {
+          "team": "Mexico",
+          "code": "MEX",
+          "played": 1,
+          "won": 1,
+          "draw": 0,
+          "lost": 0,
+          "goals_for": 2,
+          "goals_against": 0,
+          "goal_diff": 2,
+          "points": 3
+        },
+        {
+          "team": "South Africa",
+          "code": "RSA",
+          "played": 1,
+          "won": 0,
+          "draw": 0,
+          "lost": 1,
+          "goals_for": 0,
+          "goals_against": 2,
+          "goal_diff": -2,
+          "points": 0
+        }
+      ]
+    },
     "top_scorers": [],
-    "results": []
+    "results": [
+      {
+        "date": "2026-06-11T19:00:00Z",
+        "stage": "GROUP_STAGE",
+        "group": "GROUP_A",
+        "home": "Mexico",
+        "home_code": "MEX",
+        "away": "South Africa",
+        "away_code": "RSA",
+        "home_goals": 2,
+        "away_goals": 0,
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR"
+      }
+    ]
   }
 }
