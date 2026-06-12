@@ -13,6 +13,7 @@ Opcionalmente puede incluir un campo top-level "scorers" con la respuesta de:
 para alimentar el ranking de goleadores. Si no viene, queda vacío.
 """
 
+import os
 import sys
 import json
 import subprocess
@@ -174,6 +175,24 @@ def ensure_git_identity():
         subprocess.run(['git', 'config', 'user.name', 'Mundial Bot'])
 
 
+def configure_authenticated_remote():
+    """Configura el remote origin con autenticación por token, si hay uno en el entorno.
+
+    El token se lee SIEMPRE de la variable de entorno GITHUB_TOKEN — nunca se
+    hardcodea en el código (esto se commitea y subiría el secreto a GitHub).
+    Definí la variable en el entorno donde corre el script (CI / runner):
+        Linux/macOS:  export GITHUB_TOKEN=ghp_xxx
+        PowerShell:   $env:GITHUB_TOKEN = "ghp_xxx"
+    """
+    token = os.environ.get('GITHUB_TOKEN')
+    if token:
+        remote_url = f'https://{token}@github.com/luquitapalu/mundial-2026-live.git'
+        subprocess.run(['git', 'remote', 'set-url', 'origin', remote_url])
+        print('Remote origin configurado con autenticación por token')
+    else:
+        print('Sin GITHUB_TOKEN en el entorno — push con la config de remote existente')
+
+
 def git_commit_and_push():
     """git add → commit → push. Si no hay cambios, skip silencioso."""
     ensure_git_identity()
@@ -189,6 +208,8 @@ def git_commit_and_push():
             print('Sin cambios para commitear — skip push')
             return
         raise RuntimeError(f'git commit devolvió rc={commit.returncode}')
+
+    configure_authenticated_remote()
 
     push = run_git(['git', 'push'])
     if push.returncode != 0:
