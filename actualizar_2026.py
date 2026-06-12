@@ -165,8 +165,19 @@ def run_git(cmd):
     return r
 
 
+def ensure_git_identity():
+    """Configura la identidad de git si todavía no está definida (entornos CI/bot)."""
+    email = subprocess.run(['git', 'config', 'user.email'], capture_output=True, text=True)
+    if not email.stdout.strip():
+        print('git user.email no configurado — usando identidad del bot')
+        subprocess.run(['git', 'config', 'user.email', 'bot@mundial2026.com'])
+        subprocess.run(['git', 'config', 'user.name', 'Mundial Bot'])
+
+
 def git_commit_and_push():
     """git add → commit → push. Si no hay cambios, skip silencioso."""
+    ensure_git_identity()
+
     add = run_git(['git', 'add', JSON_PATH])
     if add.returncode != 0:
         raise RuntimeError(f'git add devolvió rc={add.returncode}')
