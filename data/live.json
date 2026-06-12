@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-12T15:08:49.402913+00:00",
+  "ultima_actualizacion": "2026-06-12T21:40:11.502281+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -102,13 +102,13 @@
       "utc": "2026-06-12T19:00:00Z",
       "fecha": "2026-06-12",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Canadá",
       "bandera_local": "🇨🇦",
       "visitante": "Bosnia y Herzegovina",
       "bandera_visitante": "🇧🇦",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 3
@@ -2189,26 +2189,26 @@
       {
         "pais": "Bosnia y Herzegovina",
         "bandera": "🇧🇦",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Canadá",
         "bandera": "🇨🇦",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Catar",
@@ -2774,6 +2774,22 @@
       "jugador": "Hyun-Gyu Oh",
       "pais": "Corea del Sur",
       "bandera": "🇰🇷",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 6,
+      "jugador": "Jovo Lukić",
+      "pais": "Bosnia y Herzegovina",
+      "bandera": "🇧🇦",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 7,
+      "jugador": "Cyle Larin",
+      "pais": "Canadá",
+      "bandera": "🇨🇦",
       "goles": 1,
       "asistencias": null
     }
