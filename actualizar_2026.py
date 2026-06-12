@@ -224,7 +224,7 @@ def git_commit_and_push():
 
     configure_authenticated_remote()
 
-    push = run_git(['git', 'push'])
+    push = run_git(['git', 'push', 'origin', 'HEAD:main'])
     if push.returncode != 0:
         raise RuntimeError(f'git push devolvió rc={push.returncode}')
 
