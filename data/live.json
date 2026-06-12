@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-11T00:20:16Z",
+  "ultima_actualizacion": "2026-06-12T04:21:12.193649+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -62,13 +62,13 @@
       "utc": "2026-06-11T19:00:00Z",
       "fecha": "2026-06-11",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "México",
       "bandera_local": "🇲🇽",
       "visitante": "Sudáfrica",
       "bandera_visitante": "🇿🇦",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 2,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 1
@@ -82,13 +82,13 @@
       "utc": "2026-06-12T02:00:00Z",
       "fecha": "2026-06-12",
       "hora": "02:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Corea del Sur",
       "bandera_local": "🇰🇷",
       "visitante": "Chequia",
       "bandera_visitante": "🇨🇿",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 2,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 2
@@ -2137,51 +2137,51 @@
   "clasificaciones": {
     "A": [
       {
-        "pais": "Chequia",
-        "bandera": "🇨🇿",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
         "pais": "México",
         "bandera": "🇲🇽",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
+        "gf": 2,
         "gc": 0,
-        "dif": 0,
+        "dif": 2,
+        "pts": 3
+      },
+      {
+        "pais": "Corea del Sur",
+        "bandera": "🇰🇷",
+        "pj": 1,
+        "g": 1,
+        "e": 0,
+        "p": 0,
+        "gf": 2,
+        "gc": 1,
+        "dif": 1,
+        "pts": 3
+      },
+      {
+        "pais": "Chequia",
+        "bandera": "🇨🇿",
+        "pj": 1,
+        "g": 0,
+        "e": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 2,
+        "dif": -1,
         "pts": 0
       },
       {
         "pais": "Sudáfrica",
         "bandera": "🇿🇦",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
+        "p": 1,
         "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Corea del Sur",
-        "bandera": "🇰🇷",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "gc": 2,
+        "dif": -2,
         "pts": 0
       }
     ],
@@ -2249,8 +2249,8 @@
         "pts": 0
       },
       {
-        "pais": "Marruecos",
-        "bandera": "🇲🇦",
+        "pais": "Escocia",
+        "bandera": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2273,8 +2273,8 @@
         "pts": 0
       },
       {
-        "pais": "Escocia",
-        "bandera": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+        "pais": "Marruecos",
+        "bandera": "🇲🇦",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2287,8 +2287,8 @@
     ],
     "D": [
       {
-        "pais": "Turquía",
-        "bandera": "🇹🇷",
+        "pais": "Australia",
+        "bandera": "🇦🇺",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2323,8 +2323,8 @@
         "pts": 0
       },
       {
-        "pais": "Australia",
-        "bandera": "🇦🇺",
+        "pais": "Turquía",
+        "bandera": "🇹🇷",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2349,8 +2349,8 @@
         "pts": 0
       },
       {
-        "pais": "Curazao",
-        "bandera": "🇨🇼",
+        "pais": "Costa de Marfil",
+        "bandera": "🇨🇮",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2361,8 +2361,8 @@
         "pts": 0
       },
       {
-        "pais": "Costa de Marfil",
-        "bandera": "🇨🇮",
+        "pais": "Curazao",
+        "bandera": "🇨🇼",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2387,8 +2387,8 @@
     ],
     "F": [
       {
-        "pais": "Suecia",
-        "bandera": "🇸🇪",
+        "pais": "Japón",
+        "bandera": "🇯🇵",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2411,8 +2411,8 @@
         "pts": 0
       },
       {
-        "pais": "Japón",
-        "bandera": "🇯🇵",
+        "pais": "Suecia",
+        "bandera": "🇸🇪",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2487,8 +2487,8 @@
     ],
     "H": [
       {
-        "pais": "España",
-        "bandera": "🇪🇸",
+        "pais": "Arabia Saudita",
+        "bandera": "🇸🇦",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2511,8 +2511,8 @@
         "pts": 0
       },
       {
-        "pais": "Arabia Saudita",
-        "bandera": "🇸🇦",
+        "pais": "España",
+        "bandera": "🇪🇸",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2537,18 +2537,6 @@
     ],
     "I": [
       {
-        "pais": "Irak",
-        "bandera": "🇮🇶",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
         "pais": "Francia",
         "bandera": "🇫🇷",
         "pj": 0,
@@ -2561,8 +2549,8 @@
         "pts": 0
       },
       {
-        "pais": "Senegal",
-        "bandera": "🇸🇳",
+        "pais": "Irak",
+        "bandera": "🇮🇶",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2583,12 +2571,24 @@
         "gc": 0,
         "dif": 0,
         "pts": 0
+      },
+      {
+        "pais": "Senegal",
+        "bandera": "🇸🇳",
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dif": 0,
+        "pts": 0
       }
     ],
     "J": [
       {
-        "pais": "Argentina",
-        "bandera": "🇦🇷",
+        "pais": "Argelia",
+        "bandera": "🇩🇿",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2599,8 +2599,8 @@
         "pts": 0
       },
       {
-        "pais": "Argelia",
-        "bandera": "🇩🇿",
+        "pais": "Argentina",
+        "bandera": "🇦🇷",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2637,8 +2637,8 @@
     ],
     "K": [
       {
-        "pais": "RD Congo",
-        "bandera": "🇨🇩",
+        "pais": "Colombia",
+        "bandera": "🇨🇴",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2661,8 +2661,8 @@
         "pts": 0
       },
       {
-        "pais": "Uzbekistán",
-        "bandera": "🇺🇿",
+        "pais": "RD Congo",
+        "bandera": "🇨🇩",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2673,8 +2673,8 @@
         "pts": 0
       },
       {
-        "pais": "Colombia",
-        "bandera": "🇨🇴",
+        "pais": "Uzbekistán",
+        "bandera": "🇺🇿",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2686,18 +2686,6 @@
       }
     ],
     "L": [
-      {
-        "pais": "Inglaterra",
-        "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
       {
         "pais": "Croacia",
         "bandera": "🇭🇷",
@@ -2713,6 +2701,18 @@
       {
         "pais": "Ghana",
         "bandera": "🇬🇭",
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dif": 0,
+        "pts": 0
+      },
+      {
+        "pais": "Inglaterra",
+        "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -3122,54 +3122,5 @@
       "top_goleadores": [],
       "top_minutos": []
     }
-  },
-  "mundial_2026": {
-    "last_update": "2026-06-12T03:48:29.298670+00:00",
-    "matches_played": 1,
-    "total_goals": 2,
-    "standings": {
-      "GROUP_A": [
-        {
-          "team": "Mexico",
-          "code": "MEX",
-          "played": 1,
-          "won": 1,
-          "draw": 0,
-          "lost": 0,
-          "goals_for": 2,
-          "goals_against": 0,
-          "goal_diff": 2,
-          "points": 3
-        },
-        {
-          "team": "South Africa",
-          "code": "RSA",
-          "played": 1,
-          "won": 0,
-          "draw": 0,
-          "lost": 1,
-          "goals_for": 0,
-          "goals_against": 2,
-          "goal_diff": -2,
-          "points": 0
-        }
-      ]
-    },
-    "top_scorers": [],
-    "results": [
-      {
-        "date": "2026-06-11T19:00:00Z",
-        "stage": "GROUP_STAGE",
-        "group": "GROUP_A",
-        "home": "Mexico",
-        "home_code": "MEX",
-        "away": "South Africa",
-        "away_code": "RSA",
-        "home_goals": 2,
-        "away_goals": 0,
-        "winner": "HOME_TEAM",
-        "duration": "REGULAR"
-      }
-    ]
   }
 }
