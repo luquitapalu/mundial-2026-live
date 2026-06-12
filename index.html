@@ -770,8 +770,10 @@ function render(data){
   pill.hidden = false;
   document.getElementById("updateTime").textContent = fmtActualizacion(data.ultima_actualizacion);
 
-  // Grupos: preferir standings.json (datos reales); fallback a live.json
-  const grupos = buildGrupos(data.standings) || data.clasificaciones || {};
+  // Grupos: priorizar clasificaciones de live.json (las que actualiza el bot);
+  // standings.json queda solo como fallback inicial si live.json no las trae.
+  const tieneClas = data.clasificaciones && Object.keys(data.clasificaciones).length > 0;
+  const grupos = (tieneClas ? data.clasificaciones : buildGrupos(data.standings)) || {};
 
   renderMatches(data.partidos || []);
   renderStandings(grupos);

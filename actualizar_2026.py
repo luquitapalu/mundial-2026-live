@@ -1,6 +1,6 @@
 """
-actualizar_2026.py — actualiza data/historico.json con los datos en vivo
-del Mundial 2026 desde la API de football-data.org.
+actualizar_2026.py — actualiza data/live.json con los datos en vivo del
+Mundial 2026 desde la API de football-data.org, en el formato que lee la página.
 
 Uso (n8n "Execute Command" o CLI):
     python actualizar_2026.py path/to/matches.json
@@ -10,18 +10,60 @@ El input es el JSON crudo de:
     GET https://api.football-data.org/v4/competitions/WC/matches
 Opcionalmente puede incluir un campo top-level "scorers" con la respuesta de:
     GET https://api.football-data.org/v4/competitions/WC/scorers
-para alimentar el ranking de goleadores. Si no viene, queda vacío.
+para alimentar goleadores[]. Si no viene, goleadores[] se deja sin cambios.
+
+Qué actualiza dentro de data/live.json (las estructuras que consume index.html):
+    · partidos[]       — estado / goles / minuto, matcheando por fdId == match id
+    · clasificaciones  — recalculadas desde los partidos de grupos finalizados
+    · goleadores[]     — top 20, si el payload trae 'scorers'
 """
 
 import os
 import sys
 import json
 import subprocess
-from collections import defaultdict
 from datetime import datetime, timezone
 
 
 JSON_PATH = 'data/live.json'
+
+# football-data.org (nombre en inglés) -> (nombre en español, bandera emoji).
+# Debe coincidir con los nombres usados en data/live.json (partidos/clasificaciones).
+TEAM_MAP = {
+    "Czechia": ("Chequia", "🇨🇿"), "Mexico": ("México", "🇲🇽"), "South Africa": ("Sudáfrica", "🇿🇦"),
+    "South Korea": ("Corea del Sur", "🇰🇷"), "Bosnia-Herzegovina": ("Bosnia y Herzegovina", "🇧🇦"),
+    "Canada": ("Canadá", "🇨🇦"), "Qatar": ("Catar", "🇶🇦"), "Switzerland": ("Suiza", "🇨🇭"),
+    "Brazil": ("Brasil", "🇧🇷"), "Morocco": ("Marruecos", "🇲🇦"), "Haiti": ("Haití", "🇭🇹"),
+    "Scotland": ("Escocia", "🏴󠁧󠁢󠁳󠁣󠁴󠁿"), "Turkey": ("Turquía", "🇹🇷"), "United States": ("Estados Unidos", "🇺🇸"),
+    "Paraguay": ("Paraguay", "🇵🇾"), "Australia": ("Australia", "🇦🇺"), "Germany": ("Alemania", "🇩🇪"),
+    "Curaçao": ("Curazao", "🇨🇼"), "Ivory Coast": ("Costa de Marfil", "🇨🇮"), "Ecuador": ("Ecuador", "🇪🇨"),
+    "Sweden": ("Suecia", "🇸🇪"), "Netherlands": ("Países Bajos", "🇳🇱"), "Japan": ("Japón", "🇯🇵"),
+    "Tunisia": ("Túnez", "🇹🇳"), "Belgium": ("Bélgica", "🇧🇪"), "Egypt": ("Egipto", "🇪🇬"),
+    "Iran": ("Irán", "🇮🇷"), "New Zealand": ("Nueva Zelanda", "🇳🇿"), "Spain": ("España", "🇪🇸"),
+    "Cape Verde Islands": ("Cabo Verde", "🇨🇻"), "Saudi Arabia": ("Arabia Saudita", "🇸🇦"),
+    "Uruguay": ("Uruguay", "🇺🇾"), "Iraq": ("Irak", "🇮🇶"), "France": ("Francia", "🇫🇷"),
+    "Senegal": ("Senegal", "🇸🇳"), "Norway": ("Noruega", "🇳🇴"), "Argentina": ("Argentina", "🇦🇷"),
+    "Algeria": ("Argelia", "🇩🇿"), "Austria": ("Austria", "🇦🇹"), "Jordan": ("Jordania", "🇯🇴"),
+    "Congo DR": ("RD Congo", "🇨🇩"), "Portugal": ("Portugal", "🇵🇹"), "Uzbekistan": ("Uzbekistán", "🇺🇿"),
+    "Colombia": ("Colombia", "🇨🇴"), "England": ("Inglaterra", "🏴󠁧󠁢󠁥󠁮󠁧󠁿"), "Croatia": ("Croacia", "🇭🇷"),
+    "Ghana": ("Ghana", "🇬🇭"), "Panama": ("Panamá", "🇵🇦"),
+}
+
+
+def tr_team(name):
+    """Traduce el nombre de la API a (nombre_es, bandera). Si no está mapeado,
+    devuelve el nombre tal cual con bandera neutra."""
+    if not name:
+        return (None, None)
+    return TEAM_MAP.get(name, (name, '🏳️'))
+
+
+# football-data status -> estado interno de la página
+ESTADO_MAP = {
+    'FINISHED': 'finished',
+    'IN_PLAY': 'in_play', 'PAUSED': 'in_play',
+    'TIMED': 'scheduled', 'SCHEDULED': 'scheduled',
+}
 
 
 # ── Cargar input ────────────────────────────────────────────────────────────
@@ -49,111 +91,126 @@ def get_finished_matches(payload):
     return finished
 
 
-# ── Resultados partido a partido ────────────────────────────────────────────
-def build_results(finished):
-    results = []
-    for m in finished:
-        results.append({
-            'date':       m.get('utcDate'),
-            'stage':      m.get('stage'),
-            'group':      m.get('group'),
-            'home':       m['homeTeam']['name'],
-            'home_code':  m['homeTeam'].get('tla'),
-            'away':       m['awayTeam']['name'],
-            'away_code':  m['awayTeam'].get('tla'),
-            'home_goals': safe_score(m, 'home'),
-            'away_goals': safe_score(m, 'away'),
-            'winner':     m['score'].get('winner'),
-            'duration':   m['score'].get('duration'),
-        })
-    return results
-
-
-# ── Tabla de posiciones (solo fase de grupos) ───────────────────────────────
-def build_standings(finished):
-    """3 pts win, 1 draw, 0 lose. Agrupa por nombre de grupo."""
-    groups = defaultdict(lambda: defaultdict(lambda: {
-        'team': '', 'code': '',
-        'played': 0, 'won': 0, 'draw': 0, 'lost': 0,
-        'goals_for': 0, 'goals_against': 0, 'goal_diff': 0, 'points': 0,
-    }))
-
-    for m in finished:
-        if m.get('stage') != 'GROUP_STAGE':
+# ── Actualizar partidos[] (matcheando por fdId == id de la API) ──────────────
+def apply_live_to_partidos(d, payload):
+    """Actualiza estado / goles / minuto de cada partido en partidos[], buscando
+    por fdId == match id de football-data. En eliminatorias, completa los equipos
+    'Por definir' cuando la API ya los define (traducidos con TEAM_MAP)."""
+    by_fd = {p.get('fdId'): p for p in d.get('partidos', [])}
+    updated = 0
+    for m in payload.get('matches', []):
+        p = by_fd.get(m.get('id'))
+        if not p:
             continue
+        status = m.get('status')
+        p['estado'] = ESTADO_MAP.get(status, p.get('estado'))
+        if status in ('IN_PLAY', 'PAUSED', 'FINISHED'):
+            p['goles_local'] = safe_score(m, 'home')
+            p['goles_visitante'] = safe_score(m, 'away')
+        p['minuto'] = m.get('minute')
 
-        g  = m.get('group') or 'Group ?'
-        h, a   = m['homeTeam']['name'], m['awayTeam']['name']
-        hc, ac = m['homeTeam'].get('tla', ''), m['awayTeam'].get('tla', '')
-        hs, as_ = safe_score(m, 'home'), safe_score(m, 'away')
-
-        for tn, tc in ((h, hc), (a, ac)):
-            groups[g][tn]['team'] = tn
-            groups[g][tn]['code'] = tc
-
-        groups[g][h]['played']        += 1
-        groups[g][a]['played']        += 1
-        groups[g][h]['goals_for']     += hs
-        groups[g][h]['goals_against'] += as_
-        groups[g][a]['goals_for']     += as_
-        groups[g][a]['goals_against'] += hs
-
-        if hs > as_:
-            groups[g][h]['won']  += 1; groups[g][h]['points'] += 3
-            groups[g][a]['lost'] += 1
-        elif hs < as_:
-            groups[g][a]['won']  += 1; groups[g][a]['points'] += 3
-            groups[g][h]['lost'] += 1
-        else:
-            groups[g][h]['draw'] += 1; groups[g][h]['points'] += 1
-            groups[g][a]['draw'] += 1; groups[g][a]['points'] += 1
-
-    standings = {}
-    for gname, teams in groups.items():
-        rows = list(teams.values())
-        for r in rows:
-            r['goal_diff'] = r['goals_for'] - r['goals_against']
-        # Orden: puntos desc, diferencia de gol desc, goles a favor desc, nombre asc
-        rows.sort(key=lambda r: (-r['points'], -r['goal_diff'], -r['goals_for'], r['team']))
-        standings[gname] = rows
-
-    return dict(sorted(standings.items()))
+        # Eliminatorias: cuando la API ya tiene los clasificados, reemplazar "Por definir"
+        if p.get('grupo') is None:
+            home = (m.get('homeTeam') or {}).get('name')
+            away = (m.get('awayTeam') or {}).get('name')
+            if home:
+                p['local'], p['bandera_local'] = tr_team(home)
+            if away:
+                p['visitante'], p['bandera_visitante'] = tr_team(away)
+        updated += 1
+    print(f'partidos[] actualizados: {updated}')
+    return updated
 
 
-# ── Top 5 goleadores ────────────────────────────────────────────────────────
-def build_top_scorers(payload, limit=5):
-    """Usa el campo opcional 'scorers' (respuesta del endpoint /scorers).
-    El endpoint /matches NO trae goleadores — para que esto se llene hay que
-    combinar ambas respuestas en el JSON de entrada."""
+# ── Goleadores (top 20) en el formato que lee la página ──────────────────────
+def build_goleadores(payload, limit=20):
+    """Construye goleadores[] desde el campo opcional 'scorers' (respuesta de
+    /competitions/WC/scorers). El endpoint /matches NO trae goleadores: hay que
+    combinar ambas respuestas en el JSON de entrada para que esto se llene."""
     raw = payload.get('scorers') or []
-    if not raw:
-        print('Sin "scorers" en el payload — top_scorers queda vacío')
-        return []
-
     out = []
-    for s in raw[:limit]:
+    for i, s in enumerate(raw[:limit], start=1):
         player = s.get('player') or {}
-        team   = s.get('team')   or {}
+        team = s.get('team') or {}
+        pais, bandera = tr_team(team.get('name'))
         out.append({
-            'player': player.get('name', ''),
-            'team':   team.get('name', ''),
-            'goals':  s.get('goals') or 0,
+            'pos': i,
+            'jugador': player.get('name', ''),
+            'pais': pais or team.get('name', ''),
+            'bandera': bandera or '🏳️',
+            'goles': s.get('goals') or 0,
+            'asistencias': s.get('assists'),
         })
     return out
 
 
-# ── Persistir en data/historico.json ────────────────────────────────────────
-def update_historico(payload_2026):
+# ── Clasificaciones: recalcular sobre la estructura existente (12 grupos x 4) ─
+def update_clasificaciones(d, finished):
+    """Recalcula clasificaciones[] sumando los partidos de grupos finalizados.
+    Parte de la estructura existente (mantiene los 4 equipos de cada grupo aunque
+    todavía no hayan jugado) y reordena por puntos / dif. de gol / GF."""
+    clas = d.get('clasificaciones') or {}
+    index = {}
+    for letra, rows in clas.items():
+        index[letra] = {}
+        for r in rows:
+            for k in ('pj', 'g', 'e', 'p', 'gf', 'gc', 'dif', 'pts'):
+                r[k] = 0
+            index[letra][r['pais']] = r
+
+    for m in finished:
+        if m.get('stage') != 'GROUP_STAGE':
+            continue
+        letra = (m.get('group') or '').replace('GROUP_', '')
+        rows = index.get(letra)
+        if not rows:
+            continue
+        rh = rows.get(tr_team(m['homeTeam']['name'])[0])
+        ra = rows.get(tr_team(m['awayTeam']['name'])[0])
+        if not rh or not ra:
+            print(f"  aviso: equipo sin fila en grupo {letra} "
+                  f"({m['homeTeam']['name']} / {m['awayTeam']['name']}) — salteado")
+            continue
+        hs, as_ = safe_score(m, 'home'), safe_score(m, 'away')
+        rh['pj'] += 1; ra['pj'] += 1
+        rh['gf'] += hs; rh['gc'] += as_
+        ra['gf'] += as_; ra['gc'] += hs
+        if hs > as_:
+            rh['g'] += 1; rh['pts'] += 3; ra['p'] += 1
+        elif hs < as_:
+            ra['g'] += 1; ra['pts'] += 3; rh['p'] += 1
+        else:
+            rh['e'] += 1; rh['pts'] += 1
+            ra['e'] += 1; ra['pts'] += 1
+
+    for letra, rows in clas.items():
+        for r in rows:
+            r['dif'] = r['gf'] - r['gc']
+        rows.sort(key=lambda r: (-r['pts'], -r['dif'], -r['gf'], r['pais']))
+    print('clasificaciones[] recalculadas')
+
+
+# ── Persistir en data/live.json ──────────────────────────────────────────────
+def update_live_json(payload, finished):
     print(f'Cargando {JSON_PATH}')
     with open(JSON_PATH, encoding='utf-8') as f:
         d = json.load(f)
 
-    d['mundial_2026'] = payload_2026
+    apply_live_to_partidos(d, payload)
+    update_clasificaciones(d, finished)
+
+    if payload.get('scorers'):
+        d['goleadores'] = build_goleadores(payload)
+        print(f"goleadores[] actualizados: {len(d['goleadores'])}")
+    else:
+        print('Sin "scorers" en el payload — goleadores[] sin cambios')
+
+    d['ultima_actualizacion'] = datetime.now(timezone.utc).isoformat()
+    d.pop('mundial_2026', None)  # limpiar bloque viejo que la página no consume
 
     with open(JSON_PATH, 'w', encoding='utf-8') as f:
         json.dump(d, f, ensure_ascii=False, indent=2)
-
-    print(f'JSON guardado con la clave mundial_2026')
+    print('live.json guardado')
 
 
 # ── Git add / commit / push ─────────────────────────────────────────────────
@@ -238,16 +295,7 @@ if __name__ == '__main__':
         total_goals = sum(safe_score(m, 'home') + safe_score(m, 'away') for m in finished)
         print(f'Goles totales: {total_goals}')
 
-        result = {
-            'last_update':    datetime.now(timezone.utc).isoformat(),
-            'matches_played': len(finished),
-            'total_goals':    total_goals,
-            'standings':      build_standings(finished),
-            'top_scorers':    build_top_scorers(payload),
-            'results':        build_results(finished),
-        }
-
-        update_historico(result)
+        update_live_json(payload, finished)
         git_commit_and_push()
         print('Listo — Mundial 2026 actualizado')
 
