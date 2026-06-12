@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-12T04:21:12.193649+00:00",
+  "ultima_actualizacion": "2026-06-12T14:45:32.051428+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -2736,7 +2736,48 @@
       }
     ]
   },
-  "goleadores": [],
+  "goleadores": [
+    {
+      "pos": 1,
+      "jugador": "Julián Quiñones",
+      "pais": "México",
+      "bandera": "🇲🇽",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 2,
+      "jugador": "Raúl Jiménez",
+      "pais": "México",
+      "bandera": "🇲🇽",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 3,
+      "jugador": "Ladislav Krejčí",
+      "pais": "Chequia",
+      "bandera": "🇨🇿",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 4,
+      "jugador": "In-beom Hwang",
+      "pais": "Corea del Sur",
+      "bandera": "🇰🇷",
+      "goles": 1,
+      "asistencias": 1
+    },
+    {
+      "pos": 5,
+      "jugador": "Hyun-Gyu Oh",
+      "pais": "Corea del Sur",
+      "bandera": "🇰🇷",
+      "goles": 1,
+      "asistencias": null
+    }
+  ],
   "estadisticas_2026": {
     "Chequia": {
       "partidos_jugados": 0,
