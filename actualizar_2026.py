@@ -8,14 +8,16 @@ Uso (n8n "Execute Command" o CLI):
 
 El input es el JSON crudo de:
     GET https://api.football-data.org/v4/competitions/WC/matches
-Opcionalmente puede incluir un campo top-level "scorers" con la respuesta de:
-    GET https://api.football-data.org/v4/competitions/WC/scorers
-para alimentar goleadores[]. Si no viene, goleadores[] se deja sin cambios.
+
+Cuando hay al menos 1 partido FINISHED, además consulta en vivo el ranking de
+goleadores (GET .../WC/scorers) usando la variable de entorno FOOTBALL_DATA_API_KEY.
+Si esa consulta falla (rate limit / red / falta la key), se loguea y goleadores[]
+queda sin cambios — no rompe el resto de la actualización.
 
 Qué actualiza dentro de data/live.json (las estructuras que consume index.html):
     · partidos[]       — estado / goles / minuto, matcheando por fdId == match id
     · clasificaciones  — recalculadas desde los partidos de grupos finalizados
-    · goleadores[]     — top 20, si el payload trae 'scorers'
+    · goleadores[]     — top 20 desde la API, si hay partidos finalizados
 """
 
 import os
@@ -26,6 +28,11 @@ from datetime import datetime, timezone
 
 
 JSON_PATH = 'data/live.json'
+
+# API football-data.org — para traer el ranking de goleadores en vivo.
+# Configurar FOOTBALL_DATA_API_KEY en el entorno (Render).
+FOOTBALL_DATA_API_KEY = os.environ.get('FOOTBALL_DATA_API_KEY')
+WC_COMPETITION_ID = 2000
 
 # football-data.org (nombre en inglés) -> (nombre en español, bandera emoji).
 # Debe coincidir con los nombres usados en data/live.json (partidos/clasificaciones).
@@ -122,21 +129,42 @@ def apply_live_to_partidos(d, payload):
     return updated
 
 
-# ── Goleadores (top 20) en el formato que lee la página ──────────────────────
-def build_goleadores(payload, limit=20):
-    """Construye goleadores[] desde el campo opcional 'scorers' (respuesta de
-    /competitions/WC/scorers). El endpoint /matches NO trae goleadores: hay que
-    combinar ambas respuestas en el JSON de entrada para que esto se llene."""
-    raw = payload.get('scorers') or []
+# ── Goleadores: ranking en vivo desde football-data.org ──────────────────────
+def fetch_scorers(limit=20):
+    """Trae el ranking de goleadores del Mundial desde football-data.org.
+    Requiere FOOTBALL_DATA_API_KEY en el entorno. Devuelve una lista plana.
+    Lanza excepción ante error de red / rate limit / falta de key."""
+    if not FOOTBALL_DATA_API_KEY:
+        raise RuntimeError('falta la variable de entorno FOOTBALL_DATA_API_KEY')
+    # Import diferido: el resto del script no depende de requests (no rompe si falta).
+    import requests
+    url = f'https://api.football-data.org/v4/competitions/{WC_COMPETITION_ID}/scorers'
+    resp = requests.get(url, headers={'X-Auth-Token': FOOTBALL_DATA_API_KEY},
+                        params={'limit': limit}, timeout=30)
+    resp.raise_for_status()
     out = []
-    for i, s in enumerate(raw[:limit], start=1):
-        player = s.get('player') or {}
-        team = s.get('team') or {}
-        pais, bandera = tr_team(team.get('name'))
+    for item in resp.json().get('scorers', []):
+        out.append({
+            'player': item['player']['name'],
+            'team': item['team']['name'],
+            'goals': item.get('goals'),
+            'assists': item.get('assists'),
+            'matches_played': item.get('playedMatches'),
+        })
+    return out
+
+
+def to_goleadores(scorers, limit=20):
+    """Convierte el ranking de fetch_scorers() al esquema de goleadores[] en
+    live.json (pos/jugador/pais/bandera/goles/asistencias), traduciendo país y
+    bandera con TEAM_MAP."""
+    out = []
+    for i, s in enumerate(scorers[:limit], start=1):
+        pais, bandera = tr_team(s.get('team'))
         out.append({
             'pos': i,
-            'jugador': player.get('name', ''),
-            'pais': pais or team.get('name', ''),
+            'jugador': s.get('player', ''),
+            'pais': pais or s.get('team', ''),
             'bandera': bandera or '🏳️',
             'goles': s.get('goals') or 0,
             'asistencias': s.get('assists'),
@@ -199,11 +227,16 @@ def update_live_json(payload, finished):
     apply_live_to_partidos(d, payload)
     update_clasificaciones(d, finished)
 
-    if payload.get('scorers'):
-        d['goleadores'] = build_goleadores(payload)
-        print(f"goleadores[] actualizados: {len(d['goleadores'])}")
+    # Goleadores: solo si ya hay al menos 1 partido finalizado. Tolerante a fallos:
+    # un error de la API (rate limit / red / falta de key) NO interrumpe el script.
+    if finished:
+        try:
+            d['goleadores'] = to_goleadores(fetch_scorers())
+            print(f"goleadores[] actualizados: {len(d['goleadores'])}")
+        except Exception as e:
+            print(f'No se pudieron traer goleadores ({type(e).__name__}: {e}) — goleadores[] sin cambios')
     else:
-        print('Sin "scorers" en el payload — goleadores[] sin cambios')
+        print('Sin partidos finalizados — goleadores[] sin cambios')
 
     d['ultima_actualizacion'] = datetime.now(timezone.utc).isoformat()
     d.pop('mundial_2026', None)  # limpiar bloque viejo que la página no consume
