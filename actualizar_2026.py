@@ -185,12 +185,25 @@ def configure_authenticated_remote():
         PowerShell:   $env:GITHUB_TOKEN = "ghp_xxx"
     """
     token = os.environ.get('GITHUB_TOKEN')
-    if token:
-        remote_url = f'https://{token}@github.com/luquitapalu/mundial-2026-live.git'
-        subprocess.run(['git', 'remote', 'set-url', 'origin', remote_url])
-        print('Remote origin configurado con autenticación por token')
-    else:
+    if not token:
         print('Sin GITHUB_TOKEN en el entorno — push con la config de remote existente')
+        return
+
+    remote_url = f'https://{token}@github.com/luquitapalu/mundial-2026-live.git'
+    # OJO: no usamos run_git acá para no loguear la URL (lleva el token embebido).
+    set_url = subprocess.run(['git', 'remote', 'set-url', 'origin', remote_url],
+                             capture_output=True, text=True)
+    if set_url.returncode == 0:
+        print('Remote origin actualizado con autenticación por token')
+        return
+
+    # No existe el remote (p. ej. repo clonado en detached HEAD sin remotes): lo agregamos.
+    add = subprocess.run(['git', 'remote', 'add', 'origin', remote_url],
+                         capture_output=True, text=True)
+    if add.returncode == 0:
+        print('Remote origin agregado con autenticación por token')
+    else:
+        print('No se pudo configurar el remote origin (set-url y add fallaron)')
 
 
 def git_commit_and_push():
