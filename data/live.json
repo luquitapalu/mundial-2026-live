@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-12T21:40:11.502281+00:00",
+  "ultima_actualizacion": "2026-06-13T03:11:33.960282+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -122,13 +122,13 @@
       "utc": "2026-06-13T01:00:00Z",
       "fecha": "2026-06-13",
       "hora": "01:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Estados Unidos",
       "bandera_local": "🇺🇸",
       "visitante": "Paraguay",
       "bandera_visitante": "🇵🇾",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 4,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 4
@@ -2287,32 +2287,20 @@
     ],
     "D": [
       {
-        "pais": "Australia",
-        "bandera": "🇦🇺",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
         "pais": "Estados Unidos",
         "bandera": "🇺🇸",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "gf": 4,
+        "gc": 1,
+        "dif": 3,
+        "pts": 3
       },
       {
-        "pais": "Paraguay",
-        "bandera": "🇵🇾",
+        "pais": "Australia",
+        "bandera": "🇦🇺",
         "pj": 0,
         "g": 0,
         "e": 0,
@@ -2332,6 +2320,18 @@
         "gf": 0,
         "gc": 0,
         "dif": 0,
+        "pts": 0
+      },
+      {
+        "pais": "Paraguay",
+        "bandera": "🇵🇾",
+        "pj": 1,
+        "g": 0,
+        "e": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 4,
+        "dif": -3,
         "pts": 0
       }
     ],
@@ -2739,6 +2739,14 @@
   "goleadores": [
     {
       "pos": 1,
+      "jugador": "Folarin Balogun",
+      "pais": "Estados Unidos",
+      "bandera": "🇺🇸",
+      "goles": 2,
+      "asistencias": null
+    },
+    {
+      "pos": 2,
       "jugador": "Julián Quiñones",
       "pais": "México",
       "bandera": "🇲🇽",
@@ -2746,7 +2754,7 @@
       "asistencias": null
     },
     {
-      "pos": 2,
+      "pos": 3,
       "jugador": "Raúl Jiménez",
       "pais": "México",
       "bandera": "🇲🇽",
@@ -2754,7 +2762,7 @@
       "asistencias": null
     },
     {
-      "pos": 3,
+      "pos": 4,
       "jugador": "Ladislav Krejčí",
       "pais": "Chequia",
       "bandera": "🇨🇿",
@@ -2762,7 +2770,7 @@
       "asistencias": null
     },
     {
-      "pos": 4,
+      "pos": 5,
       "jugador": "In-beom Hwang",
       "pais": "Corea del Sur",
       "bandera": "🇰🇷",
@@ -2770,7 +2778,7 @@
       "asistencias": 1
     },
     {
-      "pos": 5,
+      "pos": 6,
       "jugador": "Hyun-Gyu Oh",
       "pais": "Corea del Sur",
       "bandera": "🇰🇷",
@@ -2778,7 +2786,7 @@
       "asistencias": null
     },
     {
-      "pos": 6,
+      "pos": 7,
       "jugador": "Jovo Lukić",
       "pais": "Bosnia y Herzegovina",
       "bandera": "🇧🇦",
@@ -2786,10 +2794,26 @@
       "asistencias": null
     },
     {
-      "pos": 7,
+      "pos": 8,
       "jugador": "Cyle Larin",
       "pais": "Canadá",
       "bandera": "🇨🇦",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 9,
+      "jugador": "Mauricio",
+      "pais": "Paraguay",
+      "bandera": "🇵🇾",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 10,
+      "jugador": "Gio Reyna",
+      "pais": "Estados Unidos",
+      "bandera": "🇺🇸",
       "goles": 1,
       "asistencias": null
     }
