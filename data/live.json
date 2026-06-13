@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-13T03:11:33.960282+00:00",
+  "ultima_actualizacion": "2026-06-13T22:00:37.111327+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -142,13 +142,13 @@
       "utc": "2026-06-13T19:00:00Z",
       "fecha": "2026-06-13",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Catar",
       "bandera_local": "🇶🇦",
       "visitante": "Suiza",
       "bandera_visitante": "🇨🇭",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 5
@@ -2213,26 +2213,26 @@
       {
         "pais": "Catar",
         "bandera": "🇶🇦",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Suiza",
         "bandera": "🇨🇭",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       }
     ],
     "C": [
@@ -2814,6 +2814,22 @@
       "jugador": "Gio Reyna",
       "pais": "Estados Unidos",
       "bandera": "🇺🇸",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 11,
+      "jugador": "Breel Embolo",
+      "pais": "Suiza",
+      "bandera": "🇨🇭",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 12,
+      "jugador": "Boualem Khoukhi",
+      "pais": "Catar",
+      "bandera": "🇶🇦",
       "goles": 1,
       "asistencias": null
     }
