@@ -349,6 +349,8 @@
     padding: 3px 10px; border-radius: 100px;
   }
   .live-count .blink { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: blink 1s steps(2,start) infinite; }
+  .live-block .jornada-head { border-bottom-color: var(--red); }
+  .live-block .jornada-name { color: var(--red-bright); }
 
   .grupo-sub { margin-bottom: 22px; }
   .grupo-sub-label {
@@ -821,6 +823,20 @@ function byLiveThenTime(a, b){
 function renderMatches(partidos){
   const cont = document.getElementById("matchesContainer");
   cont.innerHTML = "";
+
+  // Bloque destacado "En vivo ahora" arriba de todo (solo si hay partidos en curso).
+  // Los partidos en vivo también siguen apareciendo en su día dentro del calendario.
+  const enVivo = partidos
+    .filter(p => p.estado === "in_play")
+    .sort((a, b) => (a.utc || a.hora || "").localeCompare(b.utc || b.hora || ""));
+  if (enVivo.length) {
+    const lb = el(`<div class="jornada-block live-block"></div>`);
+    lb.appendChild(el(`<div class="jornada-head"><span class="jornada-name">En vivo ahora</span><span class="live-count"><span class="blink"></span>${enVivo.length} en juego</span></div>`));
+    const lgrid = el(`<div class="match-grid"></div>`);
+    enVivo.forEach(m => lgrid.appendChild(matchCard(m)));
+    lb.appendChild(lgrid);
+    cont.appendChild(lb);
+  }
 
   // Orden cronológico global por instante real, y agrupado por día calendario (hora local)
   const sorted = partidos.slice().sort((a, b) =>
