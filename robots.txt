@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://luquitapalu.github.io/mundial-2026-live/sitemap.xml
