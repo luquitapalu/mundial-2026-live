@@ -607,7 +607,7 @@
   <!-- Content -->
   <div id="content" hidden>
     <section class="panel active" id="panel-partidos">
-      <div class="section-head"><h2>Partidos<span>.</span></h2><span class="hint">Los 104 partidos · por fecha del torneo y, dentro de cada una, por grupo</span></div>
+      <div class="section-head"><h2>Partidos<span>.</span></h2><span class="hint">Los 104 partidos · en orden cronológico por día y horario</span></div>
       <div id="matchesContainer"></div>
     </section>
 
@@ -807,38 +807,40 @@ function renderMatches(partidos){
   const cont = document.getElementById("matchesContainer");
   cont.innerHTML = "";
 
-  // Agrupar por jornada del torneo (Fecha 1/2/3 y rondas de eliminatoria), ordenadas por "orden"
-  const jornadas = [];
+  // Orden cronológico global por instante real, y agrupado por día calendario (hora local)
+  const sorted = partidos.slice().sort((a, b) =>
+    (a.utc || a.fecha || "").localeCompare(b.utc || b.fecha || ""));
+
+  const dias = [];
   const map = {};
-  partidos.forEach(p => {
-    if (!map[p.jornada]) { map[p.jornada] = { nombre: p.jornada, orden: p.orden ?? 99, fase: p.fase, matches: [] }; jornadas.push(map[p.jornada]); }
-    map[p.jornada].matches.push(p);
-  });
-  jornadas.sort((a, b) => a.orden - b.orden);
-
-  jornadas.forEach(j => {
-    const block = el(`<div class="jornada-block"></div>`);
-    const liveCount = j.matches.filter(m => m.estado === "in_play").length;
-    const liveTag = liveCount ? `<span class="live-count"><span class="blink"></span>${liveCount} en vivo</span>` : "";
-    block.appendChild(el(`<div class="jornada-head"><span class="jornada-name">${esc(j.nombre)}</span>${liveTag}</div>`));
-
-    if (j.fase === "grupos") {
-      // Dentro de cada fecha, subagrupar por grupo (A, B, C…)
-      const grupos = {};
-      j.matches.forEach(m => { (grupos[m.grupo] = grupos[m.grupo] || []).push(m); });
-      Object.keys(grupos).sort().forEach(g => {
-        const sub = el(`<div class="grupo-sub"></div>`);
-        sub.appendChild(el(`<div class="grupo-sub-label"><span class="gsub-tag">${esc(g)}</span> Grupo ${esc(g)}</div>`));
-        const grid = el(`<div class="match-grid"></div>`);
-        grupos[g].slice().sort(byLiveThenTime).forEach(m => grid.appendChild(matchCard(m)));
-        sub.appendChild(grid);
-        block.appendChild(sub);
-      });
+  sorted.forEach(p => {
+    const d = matchWhen(p);
+    let key, label;
+    if (d) {
+      key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      label = `${cap(DIAS[d.getDay()])} ${d.getDate()} de ${MESES[d.getMonth()]}`;
     } else {
-      const grid = el(`<div class="match-grid"></div>`);
-      j.matches.slice().sort(byLiveThenTime).forEach(m => grid.appendChild(matchCard(m)));
-      block.appendChild(grid);
+      key = p.fecha || "—";
+      label = p.fecha ? fmtFecha(p.fecha) : "Fecha por confirmar";
     }
+    if (!map[key]) { map[key] = { label, matches: [] }; dias.push(key); }
+    map[key].matches.push(p);
+  });
+
+  dias.forEach(key => {
+    const dia = map[key];
+    const block = el(`<div class="jornada-block"></div>`);
+    const liveCount = dia.matches.filter(m => m.estado === "in_play").length;
+    const liveTag = liveCount ? `<span class="live-count"><span class="blink"></span>${liveCount} en vivo</span>` : "";
+    block.appendChild(el(`<div class="jornada-head"><span class="jornada-name">${esc(dia.label)}</span>${liveTag}</div>`));
+
+    const grid = el(`<div class="match-grid"></div>`);
+    // Dentro del día, por horario (instante real)
+    dia.matches
+      .slice()
+      .sort((a, b) => (a.utc || a.hora || "").localeCompare(b.utc || b.hora || ""))
+      .forEach(m => grid.appendChild(matchCard(m)));
+    block.appendChild(grid);
     cont.appendChild(block);
   });
 }
