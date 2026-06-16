@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-13T22:00:37.111327+00:00",
+  "ultima_actualizacion": "2026-06-16T00:59:30.997385+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -107,8 +107,8 @@
       "bandera_local": "🇨🇦",
       "visitante": "Bosnia y Herzegovina",
       "bandera_visitante": "🇧🇦",
-      "goles_local": 1,
-      "goles_visitante": 1,
+      "goles_local": 0,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 3
@@ -162,13 +162,13 @@
       "utc": "2026-06-13T22:00:00Z",
       "fecha": "2026-06-13",
       "hora": "22:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Brasil",
       "bandera_local": "🇧🇷",
       "visitante": "Marruecos",
       "bandera_visitante": "🇲🇦",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 6
@@ -182,13 +182,13 @@
       "utc": "2026-06-14T01:00:00Z",
       "fecha": "2026-06-14",
       "hora": "01:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Haití",
       "bandera_local": "🇭🇹",
       "visitante": "Escocia",
       "bandera_visitante": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 0,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 7
@@ -202,13 +202,13 @@
       "utc": "2026-06-14T04:00:00Z",
       "fecha": "2026-06-14",
       "hora": "04:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Australia",
       "bandera_local": "🇦🇺",
       "visitante": "Turquía",
       "bandera_visitante": "🇹🇷",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 2,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 8
@@ -222,13 +222,13 @@
       "utc": "2026-06-14T17:00:00Z",
       "fecha": "2026-06-14",
       "hora": "17:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Alemania",
       "bandera_local": "🇩🇪",
       "visitante": "Curazao",
       "bandera_visitante": "🇨🇼",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 7,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 9
@@ -242,13 +242,13 @@
       "utc": "2026-06-14T20:00:00Z",
       "fecha": "2026-06-14",
       "hora": "20:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Países Bajos",
       "bandera_local": "🇳🇱",
       "visitante": "Japón",
       "bandera_visitante": "🇯🇵",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 2,
+      "goles_visitante": 2,
       "estadio": "",
       "minuto": null,
       "id": 10
@@ -262,13 +262,13 @@
       "utc": "2026-06-14T23:00:00Z",
       "fecha": "2026-06-14",
       "hora": "23:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Costa de Marfil",
       "bandera_local": "🇨🇮",
       "visitante": "Ecuador",
       "bandera_visitante": "🇪🇨",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 11
@@ -282,13 +282,13 @@
       "utc": "2026-06-15T02:00:00Z",
       "fecha": "2026-06-15",
       "hora": "02:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Suecia",
       "bandera_local": "🇸🇪",
       "visitante": "Túnez",
       "bandera_visitante": "🇹🇳",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 5,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 12
@@ -302,13 +302,13 @@
       "utc": "2026-06-15T16:00:00Z",
       "fecha": "2026-06-15",
       "hora": "16:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "España",
       "bandera_local": "🇪🇸",
       "visitante": "Cabo Verde",
       "bandera_visitante": "🇨🇻",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 0,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 13
@@ -322,13 +322,13 @@
       "utc": "2026-06-15T19:00:00Z",
       "fecha": "2026-06-15",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Bélgica",
       "bandera_local": "🇧🇪",
       "visitante": "Egipto",
       "bandera_visitante": "🇪🇬",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 14
@@ -342,13 +342,13 @@
       "utc": "2026-06-15T22:00:00Z",
       "fecha": "2026-06-15",
       "hora": "22:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Arabia Saudita",
       "bandera_local": "🇸🇦",
       "visitante": "Uruguay",
       "bandera_visitante": "🇺🇾",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 15
@@ -2187,30 +2187,6 @@
     ],
     "B": [
       {
-        "pais": "Bosnia y Herzegovina",
-        "bandera": "🇧🇦",
-        "pj": 1,
-        "g": 0,
-        "e": 1,
-        "p": 0,
-        "gf": 1,
-        "gc": 1,
-        "dif": 0,
-        "pts": 1
-      },
-      {
-        "pais": "Canadá",
-        "bandera": "🇨🇦",
-        "pj": 1,
-        "g": 0,
-        "e": 1,
-        "p": 0,
-        "gf": 1,
-        "gc": 1,
-        "dif": 0,
-        "pts": 1
-      },
-      {
         "pais": "Catar",
         "bandera": "🇶🇦",
         "pj": 1,
@@ -2233,55 +2209,79 @@
         "gc": 1,
         "dif": 0,
         "pts": 1
+      },
+      {
+        "pais": "Bosnia y Herzegovina",
+        "bandera": "🇧🇦",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dif": 0,
+        "pts": 1
+      },
+      {
+        "pais": "Canadá",
+        "bandera": "🇨🇦",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dif": 0,
+        "pts": 1
       }
     ],
     "C": [
       {
-        "pais": "Brasil",
-        "bandera": "🇧🇷",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
         "pais": "Escocia",
         "bandera": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
+        "gf": 1,
         "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "dif": 1,
+        "pts": 3
       },
       {
-        "pais": "Haití",
-        "bandera": "🇭🇹",
-        "pj": 0,
+        "pais": "Brasil",
+        "bandera": "🇧🇷",
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Marruecos",
         "bandera": "🇲🇦",
-        "pj": 0,
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 1,
+        "gc": 1,
+        "dif": 0,
+        "pts": 1
+      },
+      {
+        "pais": "Haití",
+        "bandera": "🇭🇹",
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
+        "p": 1,
         "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "gc": 1,
+        "dif": -1,
         "pts": 0
       }
     ],
@@ -2301,25 +2301,25 @@
       {
         "pais": "Australia",
         "bandera": "🇦🇺",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
+        "gf": 2,
         "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "dif": 2,
+        "pts": 3
       },
       {
         "pais": "Turquía",
         "bandera": "🇹🇷",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
+        "p": 1,
         "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "gc": 2,
+        "dif": -2,
         "pts": 0
       },
       {
@@ -2339,99 +2339,99 @@
       {
         "pais": "Alemania",
         "bandera": "🇩🇪",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "gf": 7,
+        "gc": 1,
+        "dif": 6,
+        "pts": 3
       },
       {
         "pais": "Costa de Marfil",
         "bandera": "🇨🇮",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
+        "gf": 1,
         "gc": 0,
-        "dif": 0,
+        "dif": 1,
+        "pts": 3
+      },
+      {
+        "pais": "Ecuador",
+        "bandera": "🇪🇨",
+        "pj": 1,
+        "g": 0,
+        "e": 0,
+        "p": 1,
+        "gf": 0,
+        "gc": 1,
+        "dif": -1,
         "pts": 0
       },
       {
         "pais": "Curazao",
         "bandera": "🇨🇼",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Ecuador",
-        "bandera": "🇪🇨",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 7,
+        "dif": -6,
         "pts": 0
       }
     ],
     "F": [
       {
-        "pais": "Japón",
-        "bandera": "🇯🇵",
-        "pj": 0,
-        "g": 0,
+        "pais": "Suecia",
+        "bandera": "🇸🇪",
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 5,
+        "gc": 1,
+        "dif": 4,
+        "pts": 3
+      },
+      {
+        "pais": "Japón",
+        "bandera": "🇯🇵",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 2,
+        "gc": 2,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Países Bajos",
         "bandera": "🇳🇱",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 2,
+        "gc": 2,
         "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Suecia",
-        "bandera": "🇸🇪",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Túnez",
         "bandera": "🇹🇳",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 5,
+        "dif": -4,
         "pts": 0
       }
     ],
@@ -2439,26 +2439,26 @@
       {
         "pais": "Bélgica",
         "bandera": "🇧🇪",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Egipto",
         "bandera": "🇪🇬",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Irán",
@@ -2489,50 +2489,50 @@
       {
         "pais": "Arabia Saudita",
         "bandera": "🇸🇦",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Cabo Verde",
-        "bandera": "🇨🇻",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "España",
-        "bandera": "🇪🇸",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Uruguay",
         "bandera": "🇺🇾",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 1,
+        "gc": 1,
+        "dif": 0,
+        "pts": 1
+      },
+      {
+        "pais": "Cabo Verde",
+        "bandera": "🇨🇻",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
         "p": 0,
         "gf": 0,
         "gc": 0,
         "dif": 0,
-        "pts": 0
+        "pts": 1
+      },
+      {
+        "pais": "España",
+        "bandera": "🇪🇸",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dif": 0,
+        "pts": 1
       }
     ],
     "I": [
@@ -2747,6 +2747,22 @@
     },
     {
       "pos": 2,
+      "jugador": "Kai Havertz",
+      "pais": "Alemania",
+      "bandera": "🇩🇪",
+      "goles": 2,
+      "asistencias": null
+    },
+    {
+      "pos": 3,
+      "jugador": "Yasin Ayari",
+      "pais": "Suecia",
+      "bandera": "🇸🇪",
+      "goles": 2,
+      "asistencias": null
+    },
+    {
+      "pos": 4,
       "jugador": "Julián Quiñones",
       "pais": "México",
       "bandera": "🇲🇽",
@@ -2754,7 +2770,7 @@
       "asistencias": null
     },
     {
-      "pos": 3,
+      "pos": 5,
       "jugador": "Raúl Jiménez",
       "pais": "México",
       "bandera": "🇲🇽",
@@ -2762,7 +2778,7 @@
       "asistencias": null
     },
     {
-      "pos": 4,
+      "pos": 6,
       "jugador": "Ladislav Krejčí",
       "pais": "Chequia",
       "bandera": "🇨🇿",
@@ -2770,7 +2786,7 @@
       "asistencias": null
     },
     {
-      "pos": 5,
+      "pos": 7,
       "jugador": "In-beom Hwang",
       "pais": "Corea del Sur",
       "bandera": "🇰🇷",
@@ -2778,7 +2794,7 @@
       "asistencias": 1
     },
     {
-      "pos": 6,
+      "pos": 8,
       "jugador": "Hyun-Gyu Oh",
       "pais": "Corea del Sur",
       "bandera": "🇰🇷",
@@ -2786,7 +2802,7 @@
       "asistencias": null
     },
     {
-      "pos": 7,
+      "pos": 9,
       "jugador": "Jovo Lukić",
       "pais": "Bosnia y Herzegovina",
       "bandera": "🇧🇦",
@@ -2794,7 +2810,7 @@
       "asistencias": null
     },
     {
-      "pos": 8,
+      "pos": 10,
       "jugador": "Cyle Larin",
       "pais": "Canadá",
       "bandera": "🇨🇦",
@@ -2802,7 +2818,7 @@
       "asistencias": null
     },
     {
-      "pos": 9,
+      "pos": 11,
       "jugador": "Mauricio",
       "pais": "Paraguay",
       "bandera": "🇵🇾",
@@ -2810,7 +2826,7 @@
       "asistencias": null
     },
     {
-      "pos": 10,
+      "pos": 12,
       "jugador": "Gio Reyna",
       "pais": "Estados Unidos",
       "bandera": "🇺🇸",
@@ -2818,7 +2834,7 @@
       "asistencias": null
     },
     {
-      "pos": 11,
+      "pos": 13,
       "jugador": "Breel Embolo",
       "pais": "Suiza",
       "bandera": "🇨🇭",
@@ -2826,10 +2842,58 @@
       "asistencias": null
     },
     {
-      "pos": 12,
+      "pos": 14,
       "jugador": "Boualem Khoukhi",
       "pais": "Catar",
       "bandera": "🇶🇦",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 15,
+      "jugador": "Ismael Saibari",
+      "pais": "Marruecos",
+      "bandera": "🇲🇦",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 16,
+      "jugador": "Vinicius Junior",
+      "pais": "Brasil",
+      "bandera": "🇧🇷",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 17,
+      "jugador": "John McGinn",
+      "pais": "Escocia",
+      "bandera": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 18,
+      "jugador": "Nestor Irankunda",
+      "pais": "Australia",
+      "bandera": "🇦🇺",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 19,
+      "jugador": "Connor Metcalfe",
+      "pais": "Australia",
+      "bandera": "🇦🇺",
+      "goles": 1,
+      "asistencias": null
+    },
+    {
+      "pos": 20,
+      "jugador": "Felix Kalu Nmecha",
+      "pais": "Alemania",
+      "bandera": "🇩🇪",
       "goles": 1,
       "asistencias": null
     }
