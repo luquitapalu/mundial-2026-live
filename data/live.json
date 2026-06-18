@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-16T00:59:30.997385+00:00",
+  "ultima_actualizacion": "2026-06-18T14:06:21.819062+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -107,8 +107,8 @@
       "bandera_local": "🇨🇦",
       "visitante": "Bosnia y Herzegovina",
       "bandera_visitante": "🇧🇦",
-      "goles_local": 0,
-      "goles_visitante": 0,
+      "goles_local": 1,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 3
@@ -362,13 +362,13 @@
       "utc": "2026-06-16T01:00:00Z",
       "fecha": "2026-06-16",
       "hora": "01:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Irán",
       "bandera_local": "🇮🇷",
       "visitante": "Nueva Zelanda",
       "bandera_visitante": "🇳🇿",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 2,
+      "goles_visitante": 2,
       "estadio": "",
       "minuto": null,
       "id": 16
@@ -382,13 +382,13 @@
       "utc": "2026-06-16T19:00:00Z",
       "fecha": "2026-06-16",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Francia",
       "bandera_local": "🇫🇷",
       "visitante": "Senegal",
       "bandera_visitante": "🇸🇳",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 3,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 17
@@ -402,13 +402,13 @@
       "utc": "2026-06-16T22:00:00Z",
       "fecha": "2026-06-16",
       "hora": "22:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Irak",
       "bandera_local": "🇮🇶",
       "visitante": "Noruega",
       "bandera_visitante": "🇳🇴",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 4,
       "estadio": "",
       "minuto": null,
       "id": 18
@@ -422,13 +422,13 @@
       "utc": "2026-06-17T01:00:00Z",
       "fecha": "2026-06-17",
       "hora": "01:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Argentina",
       "bandera_local": "🇦🇷",
       "visitante": "Argelia",
       "bandera_visitante": "🇩🇿",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 3,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 19
@@ -442,13 +442,13 @@
       "utc": "2026-06-17T04:00:00Z",
       "fecha": "2026-06-17",
       "hora": "04:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Austria",
       "bandera_local": "🇦🇹",
       "visitante": "Jordania",
       "bandera_visitante": "🇯🇴",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 3,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 20
@@ -462,13 +462,13 @@
       "utc": "2026-06-17T17:00:00Z",
       "fecha": "2026-06-17",
       "hora": "17:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Portugal",
       "bandera_local": "🇵🇹",
       "visitante": "RD Congo",
       "bandera_visitante": "🇨🇩",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 21
@@ -482,13 +482,13 @@
       "utc": "2026-06-17T20:00:00Z",
       "fecha": "2026-06-17",
       "hora": "20:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Inglaterra",
       "bandera_local": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
       "visitante": "Croacia",
       "bandera_visitante": "🇭🇷",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 4,
+      "goles_visitante": 2,
       "estadio": "",
       "minuto": null,
       "id": 22
@@ -502,13 +502,13 @@
       "utc": "2026-06-17T23:00:00Z",
       "fecha": "2026-06-17",
       "hora": "23:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Ghana",
       "bandera_local": "🇬🇭",
       "visitante": "Panamá",
       "bandera_visitante": "🇵🇦",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 23
@@ -522,13 +522,13 @@
       "utc": "2026-06-18T02:00:00Z",
       "fecha": "2026-06-18",
       "hora": "02:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Uzbekistán",
       "bandera_local": "🇺🇿",
       "visitante": "Colombia",
       "bandera_visitante": "🇨🇴",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 3,
       "estadio": "",
       "minuto": null,
       "id": 24
@@ -2187,6 +2187,30 @@
     ],
     "B": [
       {
+        "pais": "Bosnia y Herzegovina",
+        "bandera": "🇧🇦",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 1,
+        "gc": 1,
+        "dif": 0,
+        "pts": 1
+      },
+      {
+        "pais": "Canadá",
+        "bandera": "🇨🇦",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 1,
+        "gc": 1,
+        "dif": 0,
+        "pts": 1
+      },
+      {
         "pais": "Catar",
         "bandera": "🇶🇦",
         "pj": 1,
@@ -2207,30 +2231,6 @@
         "p": 0,
         "gf": 1,
         "gc": 1,
-        "dif": 0,
-        "pts": 1
-      },
-      {
-        "pais": "Bosnia y Herzegovina",
-        "bandera": "🇧🇦",
-        "pj": 1,
-        "g": 0,
-        "e": 1,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 1
-      },
-      {
-        "pais": "Canadá",
-        "bandera": "🇨🇦",
-        "pj": 1,
-        "g": 0,
-        "e": 1,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
         "dif": 0,
         "pts": 1
       }
@@ -2437,6 +2437,30 @@
     ],
     "G": [
       {
+        "pais": "Irán",
+        "bandera": "🇮🇷",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 2,
+        "gc": 2,
+        "dif": 0,
+        "pts": 1
+      },
+      {
+        "pais": "Nueva Zelanda",
+        "bandera": "🇳🇿",
+        "pj": 1,
+        "g": 0,
+        "e": 1,
+        "p": 0,
+        "gf": 2,
+        "gc": 2,
+        "dif": 0,
+        "pts": 1
+      },
+      {
         "pais": "Bélgica",
         "bandera": "🇧🇪",
         "pj": 1,
@@ -2459,30 +2483,6 @@
         "gc": 1,
         "dif": 0,
         "pts": 1
-      },
-      {
-        "pais": "Irán",
-        "bandera": "🇮🇷",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Nueva Zelanda",
-        "bandera": "🇳🇿",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
       }
     ],
     "H": [
@@ -2537,101 +2537,101 @@
     ],
     "I": [
       {
-        "pais": "Francia",
-        "bandera": "🇫🇷",
-        "pj": 0,
-        "g": 0,
+        "pais": "Noruega",
+        "bandera": "🇳🇴",
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "gf": 4,
+        "gc": 1,
+        "dif": 3,
+        "pts": 3
+      },
+      {
+        "pais": "Francia",
+        "bandera": "🇫🇷",
+        "pj": 1,
+        "g": 1,
+        "e": 0,
+        "p": 0,
+        "gf": 3,
+        "gc": 1,
+        "dif": 2,
+        "pts": 3
+      },
+      {
+        "pais": "Senegal",
+        "bandera": "🇸🇳",
+        "pj": 1,
+        "g": 0,
+        "e": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 3,
+        "dif": -2,
         "pts": 0
       },
       {
         "pais": "Irak",
         "bandera": "🇮🇶",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Noruega",
-        "bandera": "🇳🇴",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Senegal",
-        "bandera": "🇸🇳",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 4,
+        "dif": -3,
         "pts": 0
       }
     ],
     "J": [
       {
-        "pais": "Argelia",
-        "bandera": "🇩🇿",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
         "pais": "Argentina",
         "bandera": "🇦🇷",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
+        "gf": 3,
         "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "dif": 3,
+        "pts": 3
       },
       {
         "pais": "Austria",
         "bandera": "🇦🇹",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "gf": 3,
+        "gc": 1,
+        "dif": 2,
+        "pts": 3
       },
       {
         "pais": "Jordania",
         "bandera": "🇯🇴",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 3,
+        "dif": -2,
+        "pts": 0
+      },
+      {
+        "pais": "Argelia",
+        "bandera": "🇩🇿",
+        "pj": 1,
+        "g": 0,
+        "e": 0,
+        "p": 1,
         "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "gc": 3,
+        "dif": -3,
         "pts": 0
       }
     ],
@@ -2639,99 +2639,99 @@
       {
         "pais": "Colombia",
         "bandera": "🇨🇴",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "gf": 3,
+        "gc": 1,
+        "dif": 2,
+        "pts": 3
       },
       {
         "pais": "Portugal",
         "bandera": "🇵🇹",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "RD Congo",
         "bandera": "🇨🇩",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
-        "e": 0,
+        "e": 1,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
+        "gf": 1,
+        "gc": 1,
         "dif": 0,
-        "pts": 0
+        "pts": 1
       },
       {
         "pais": "Uzbekistán",
         "bandera": "🇺🇿",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "p": 1,
+        "gf": 1,
+        "gc": 3,
+        "dif": -2,
         "pts": 0
       }
     ],
     "L": [
       {
-        "pais": "Croacia",
-        "bandera": "🇭🇷",
-        "pj": 0,
-        "g": 0,
+        "pais": "Inglaterra",
+        "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "gf": 4,
+        "gc": 2,
+        "dif": 2,
+        "pts": 3
       },
       {
         "pais": "Ghana",
         "bandera": "🇬🇭",
-        "pj": 0,
-        "g": 0,
+        "pj": 1,
+        "g": 1,
         "e": 0,
         "p": 0,
-        "gf": 0,
+        "gf": 1,
         "gc": 0,
-        "dif": 0,
-        "pts": 0
-      },
-      {
-        "pais": "Inglaterra",
-        "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-        "pj": 0,
-        "g": 0,
-        "e": 0,
-        "p": 0,
-        "gf": 0,
-        "gc": 0,
-        "dif": 0,
-        "pts": 0
+        "dif": 1,
+        "pts": 3
       },
       {
         "pais": "Panamá",
         "bandera": "🇵🇦",
-        "pj": 0,
+        "pj": 1,
         "g": 0,
         "e": 0,
-        "p": 0,
+        "p": 1,
         "gf": 0,
-        "gc": 0,
-        "dif": 0,
+        "gc": 1,
+        "dif": -1,
+        "pts": 0
+      },
+      {
+        "pais": "Croacia",
+        "bandera": "🇭🇷",
+        "pj": 1,
+        "g": 0,
+        "e": 0,
+        "p": 1,
+        "gf": 2,
+        "gc": 4,
+        "dif": -2,
         "pts": 0
       }
     ]
@@ -2739,6 +2739,14 @@
   "goleadores": [
     {
       "pos": 1,
+      "jugador": "Lionel Messi",
+      "pais": "Argentina",
+      "bandera": "🇦🇷",
+      "goles": 3,
+      "asistencias": null
+    },
+    {
+      "pos": 2,
       "jugador": "Folarin Balogun",
       "pais": "Estados Unidos",
       "bandera": "🇺🇸",
@@ -2746,7 +2754,7 @@
       "asistencias": null
     },
     {
-      "pos": 2,
+      "pos": 3,
       "jugador": "Kai Havertz",
       "pais": "Alemania",
       "bandera": "🇩🇪",
@@ -2754,7 +2762,7 @@
       "asistencias": null
     },
     {
-      "pos": 3,
+      "pos": 4,
       "jugador": "Yasin Ayari",
       "pais": "Suecia",
       "bandera": "🇸🇪",
@@ -2762,7 +2770,39 @@
       "asistencias": null
     },
     {
-      "pos": 4,
+      "pos": 5,
+      "jugador": "Elijah Just",
+      "pais": "Nueva Zelanda",
+      "bandera": "🇳🇿",
+      "goles": 2,
+      "asistencias": null
+    },
+    {
+      "pos": 6,
+      "jugador": "Kylian Mbappé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "goles": 2,
+      "asistencias": null
+    },
+    {
+      "pos": 7,
+      "jugador": "Erling Haaland",
+      "pais": "Noruega",
+      "bandera": "🇳🇴",
+      "goles": 2,
+      "asistencias": null
+    },
+    {
+      "pos": 8,
+      "jugador": "Harry Kane",
+      "pais": "Inglaterra",
+      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "goles": 2,
+      "asistencias": null
+    },
+    {
+      "pos": 9,
       "jugador": "Julián Quiñones",
       "pais": "México",
       "bandera": "🇲🇽",
@@ -2770,7 +2810,7 @@
       "asistencias": null
     },
     {
-      "pos": 5,
+      "pos": 10,
       "jugador": "Raúl Jiménez",
       "pais": "México",
       "bandera": "🇲🇽",
@@ -2778,7 +2818,7 @@
       "asistencias": null
     },
     {
-      "pos": 6,
+      "pos": 11,
       "jugador": "Ladislav Krejčí",
       "pais": "Chequia",
       "bandera": "🇨🇿",
@@ -2786,7 +2826,7 @@
       "asistencias": null
     },
     {
-      "pos": 7,
+      "pos": 12,
       "jugador": "In-beom Hwang",
       "pais": "Corea del Sur",
       "bandera": "🇰🇷",
@@ -2794,7 +2834,7 @@
       "asistencias": 1
     },
     {
-      "pos": 8,
+      "pos": 13,
       "jugador": "Hyun-Gyu Oh",
       "pais": "Corea del Sur",
       "bandera": "🇰🇷",
@@ -2802,7 +2842,7 @@
       "asistencias": null
     },
     {
-      "pos": 9,
+      "pos": 14,
       "jugador": "Jovo Lukić",
       "pais": "Bosnia y Herzegovina",
       "bandera": "🇧🇦",
@@ -2810,7 +2850,7 @@
       "asistencias": null
     },
     {
-      "pos": 10,
+      "pos": 15,
       "jugador": "Cyle Larin",
       "pais": "Canadá",
       "bandera": "🇨🇦",
@@ -2818,7 +2858,7 @@
       "asistencias": null
     },
     {
-      "pos": 11,
+      "pos": 16,
       "jugador": "Mauricio",
       "pais": "Paraguay",
       "bandera": "🇵🇾",
@@ -2826,7 +2866,7 @@
       "asistencias": null
     },
     {
-      "pos": 12,
+      "pos": 17,
       "jugador": "Gio Reyna",
       "pais": "Estados Unidos",
       "bandera": "🇺🇸",
@@ -2834,7 +2874,7 @@
       "asistencias": null
     },
     {
-      "pos": 13,
+      "pos": 18,
       "jugador": "Breel Embolo",
       "pais": "Suiza",
       "bandera": "🇨🇭",
@@ -2842,7 +2882,7 @@
       "asistencias": null
     },
     {
-      "pos": 14,
+      "pos": 19,
       "jugador": "Boualem Khoukhi",
       "pais": "Catar",
       "bandera": "🇶🇦",
@@ -2850,50 +2890,10 @@
       "asistencias": null
     },
     {
-      "pos": 15,
+      "pos": 20,
       "jugador": "Ismael Saibari",
       "pais": "Marruecos",
       "bandera": "🇲🇦",
-      "goles": 1,
-      "asistencias": null
-    },
-    {
-      "pos": 16,
-      "jugador": "Vinicius Junior",
-      "pais": "Brasil",
-      "bandera": "🇧🇷",
-      "goles": 1,
-      "asistencias": null
-    },
-    {
-      "pos": 17,
-      "jugador": "John McGinn",
-      "pais": "Escocia",
-      "bandera": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
-      "goles": 1,
-      "asistencias": null
-    },
-    {
-      "pos": 18,
-      "jugador": "Nestor Irankunda",
-      "pais": "Australia",
-      "bandera": "🇦🇺",
-      "goles": 1,
-      "asistencias": null
-    },
-    {
-      "pos": 19,
-      "jugador": "Connor Metcalfe",
-      "pais": "Australia",
-      "bandera": "🇦🇺",
-      "goles": 1,
-      "asistencias": null
-    },
-    {
-      "pos": 20,
-      "jugador": "Felix Kalu Nmecha",
-      "pais": "Alemania",
-      "bandera": "🇩🇪",
       "goles": 1,
       "asistencias": null
     }
