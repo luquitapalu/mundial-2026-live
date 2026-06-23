@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-23T01:55:44.788420+00:00",
+  "ultima_actualizacion": "2026-06-23T02:06:37.644273+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -902,13 +902,13 @@
       "utc": "2026-06-23T00:00:00Z",
       "fecha": "2026-06-23",
       "hora": "00:00",
-      "estado": "in_play",
+      "estado": "finished",
       "local": "Noruega",
       "bandera_local": "🇳🇴",
       "visitante": "Senegal",
       "bandera_visitante": "🇸🇳",
       "goles_local": 3,
-      "goles_visitante": 1,
+      "goles_visitante": 2,
       "estadio": "",
       "minuto": null,
       "id": 43
@@ -2551,25 +2551,25 @@
       {
         "pais": "Noruega",
         "bandera": "🇳🇴",
-        "pj": 1,
-        "g": 1,
+        "pj": 2,
+        "g": 2,
         "e": 0,
         "p": 0,
-        "gf": 4,
-        "gc": 1,
-        "dif": 3,
-        "pts": 3
+        "gf": 7,
+        "gc": 3,
+        "dif": 4,
+        "pts": 6
       },
       {
         "pais": "Senegal",
         "bandera": "🇸🇳",
-        "pj": 1,
+        "pj": 2,
         "g": 0,
         "e": 0,
-        "p": 1,
-        "gf": 1,
-        "gc": 3,
-        "dif": -2,
+        "p": 2,
+        "gf": 3,
+        "gc": 6,
+        "dif": -3,
         "pts": 0
       },
       {
