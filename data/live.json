@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-23T01:12:09.941420+00:00",
+  "ultima_actualizacion": "2026-06-23T01:44:02.947387+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -907,8 +907,8 @@
       "bandera_local": "🇳🇴",
       "visitante": "Senegal",
       "bandera_visitante": "🇸🇳",
-      "goles_local": 1,
-      "goles_visitante": 0,
+      "goles_local": 3,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 43
@@ -2755,19 +2755,19 @@
     },
     {
       "pos": 3,
+      "jugador": "Erling Haaland",
+      "pais": "Noruega",
+      "bandera": "🇳🇴",
+      "goles": 4,
+      "asistencias": null
+    },
+    {
+      "pos": 4,
       "jugador": "Deniz Undav",
       "pais": "Alemania",
       "bandera": "🇩🇪",
       "goles": 3,
       "asistencias": 2
-    },
-    {
-      "pos": 4,
-      "jugador": "Erling Haaland",
-      "pais": "Noruega",
-      "bandera": "🇳🇴",
-      "goles": 3,
-      "asistencias": null
     },
     {
       "pos": 5,
