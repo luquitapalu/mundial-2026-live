@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-22T23:59:20.048245+00:00",
+  "ultima_actualizacion": "2026-06-23T01:12:09.941420+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -882,12 +882,12 @@
       "utc": "2026-06-22T21:00:00Z",
       "fecha": "2026-06-22",
       "hora": "21:00",
-      "estado": "in_play",
+      "estado": "finished",
       "local": "Francia",
       "bandera_local": "🇫🇷",
       "visitante": "Irak",
       "bandera_visitante": "🇮🇶",
-      "goles_local": 1,
+      "goles_local": 3,
       "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
@@ -902,13 +902,13 @@
       "utc": "2026-06-23T00:00:00Z",
       "fecha": "2026-06-23",
       "hora": "00:00",
-      "estado": "scheduled",
+      "estado": "in_play",
       "local": "Noruega",
       "bandera_local": "🇳🇴",
       "visitante": "Senegal",
       "bandera_visitante": "🇸🇳",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 43
@@ -2537,6 +2537,18 @@
     ],
     "I": [
       {
+        "pais": "Francia",
+        "bandera": "🇫🇷",
+        "pj": 2,
+        "g": 2,
+        "e": 0,
+        "p": 0,
+        "gf": 6,
+        "gc": 1,
+        "dif": 5,
+        "pts": 6
+      },
+      {
         "pais": "Noruega",
         "bandera": "🇳🇴",
         "pj": 1,
@@ -2546,18 +2558,6 @@
         "gf": 4,
         "gc": 1,
         "dif": 3,
-        "pts": 3
-      },
-      {
-        "pais": "Francia",
-        "bandera": "🇫🇷",
-        "pj": 1,
-        "g": 1,
-        "e": 0,
-        "p": 0,
-        "gf": 3,
-        "gc": 1,
-        "dif": 2,
         "pts": 3
       },
       {
@@ -2575,13 +2575,13 @@
       {
         "pais": "Irak",
         "bandera": "🇮🇶",
-        "pj": 1,
+        "pj": 2,
         "g": 0,
         "e": 0,
-        "p": 1,
+        "p": 2,
         "gf": 1,
-        "gc": 4,
-        "dif": -3,
+        "gc": 7,
+        "dif": -6,
         "pts": 0
       }
     ],
@@ -2747,6 +2747,14 @@
     },
     {
       "pos": 2,
+      "jugador": "Kylian Mbappé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "goles": 4,
+      "asistencias": null
+    },
+    {
+      "pos": 3,
       "jugador": "Deniz Undav",
       "pais": "Alemania",
       "bandera": "🇩🇪",
@@ -2754,15 +2762,15 @@
       "asistencias": 2
     },
     {
-      "pos": 3,
-      "jugador": "Kylian Mbappé",
-      "pais": "Francia",
-      "bandera": "🇫🇷",
+      "pos": 4,
+      "jugador": "Erling Haaland",
+      "pais": "Noruega",
+      "bandera": "🇳🇴",
       "goles": 3,
       "asistencias": null
     },
     {
-      "pos": 4,
+      "pos": 5,
       "jugador": "Jonathan David",
       "pais": "Canadá",
       "bandera": "🇨🇦",
@@ -2770,7 +2778,7 @@
       "asistencias": null
     },
     {
-      "pos": 5,
+      "pos": 6,
       "jugador": "Cyle Larin",
       "pais": "Canadá",
       "bandera": "🇨🇦",
@@ -2778,7 +2786,7 @@
       "asistencias": null
     },
     {
-      "pos": 6,
+      "pos": 7,
       "jugador": "Folarin Balogun",
       "pais": "Estados Unidos",
       "bandera": "🇺🇸",
@@ -2786,7 +2794,7 @@
       "asistencias": null
     },
     {
-      "pos": 7,
+      "pos": 8,
       "jugador": "Ismael Saibari",
       "pais": "Marruecos",
       "bandera": "🇲🇦",
@@ -2794,7 +2802,7 @@
       "asistencias": null
     },
     {
-      "pos": 8,
+      "pos": 9,
       "jugador": "Vinicius Junior",
       "pais": "Brasil",
       "bandera": "🇧🇷",
@@ -2802,7 +2810,7 @@
       "asistencias": 2
     },
     {
-      "pos": 9,
+      "pos": 10,
       "jugador": "Kai Havertz",
       "pais": "Alemania",
       "bandera": "🇩🇪",
@@ -2810,7 +2818,7 @@
       "asistencias": null
     },
     {
-      "pos": 10,
+      "pos": 11,
       "jugador": "Daichi Kamada",
       "pais": "Japón",
       "bandera": "🇯🇵",
@@ -2818,7 +2826,7 @@
       "asistencias": null
     },
     {
-      "pos": 11,
+      "pos": 12,
       "jugador": "Yasin Ayari",
       "pais": "Suecia",
       "bandera": "🇸🇪",
@@ -2826,7 +2834,7 @@
       "asistencias": null
     },
     {
-      "pos": 12,
+      "pos": 13,
       "jugador": "Maximiliano Araújo",
       "pais": "Uruguay",
       "bandera": "🇺🇾",
@@ -2834,18 +2842,10 @@
       "asistencias": 1
     },
     {
-      "pos": 13,
+      "pos": 14,
       "jugador": "Elijah Just",
       "pais": "Nueva Zelanda",
       "bandera": "🇳🇿",
-      "goles": 2,
-      "asistencias": null
-    },
-    {
-      "pos": 14,
-      "jugador": "Erling Haaland",
-      "pais": "Noruega",
-      "bandera": "🇳🇴",
       "goles": 2,
       "asistencias": null
     },
