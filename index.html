@@ -927,7 +927,21 @@ function renderMatches(partidos){
   const hoy = new Date();
   hoy.setHours(0, 0, 0, 0);
 
+  // Separar días: activos (hoy/futuro o con partidos sin terminar) arriba; pasados abajo
+  const diasActivos = [];
+  const diasPasados = [];
   dias.forEach(key => {
+    const fechaDia = matchWhen(map[key].matches[0]);
+    let pasado = false;
+    if (fechaDia) {
+      const soloDia = new Date(fechaDia);
+      soloDia.setHours(0, 0, 0, 0);
+      pasado = soloDia < hoy && map[key].matches.every(m => m.estado === "finished");
+    }
+    (pasado ? diasPasados : diasActivos).push(key);
+  });
+
+  [...diasActivos, ...diasPasados].forEach(key => {
     const dia = map[key];
     const block = el(`<div class="jornada-block"></div>`);
     const liveCount = dia.matches.filter(m => m.estado === "in_play").length;
