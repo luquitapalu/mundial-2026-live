@@ -690,7 +690,12 @@
     </section>
 
     <section class="panel" id="panel-estadisticas">
-      <div class="section-head"><h2>Estadísticas<span>.</span></h2><span class="hint">Elegí una selección para ver su historia y su presente</span></div>
+      <div class="section-head"><h2>Estadísticas<span>.</span></h2><span class="hint">Datos globales del torneo y estadísticas por selección</span></div>
+
+      <!-- KPIs globales — nuevo bloque -->
+      <div id="globalKpiContainer" style="margin-bottom:28px;"></div>
+
+      <!-- Selector existente — no modificar -->
       <div class="selector-wrap">
         <label for="countrySelect">Seleccionar país</label>
         <div class="select-box">
@@ -846,6 +851,7 @@ function render(data){
   renderPlayoff(data.partidos || []);
   renderStandings(grupos);
   renderScorers(data.goleadores || []);
+  renderGlobalKPIs(data.partidos || []);
   setupStats(data, grupos);
   setupTabs();
 }
@@ -1203,6 +1209,32 @@ function renderScorers(goleadores){
       </div>
     `));
   });
+}
+
+/* ---------- KPIs globales del torneo ---------- */
+function renderGlobalKPIs(partidos){
+  const cont = document.getElementById("globalKpiContainer");
+  if (!cont) return;
+
+  const fin = (partidos || []).filter(p => p.estado === "finished");
+  const partidosJugados = fin.length;
+  const golesTotal = fin.reduce((s, p) => s + (p.goles_local || 0) + (p.goles_visitante || 0), 0);
+  const promedioGoles = partidosJugados ? (golesTotal / partidosJugados).toFixed(2) : "—";
+  const empates = fin.filter(p =>
+    p.goles_local != null && p.goles_visitante != null && p.goles_local === p.goles_visitante).length;
+  const pctEmpates = partidosJugados ? (empates / partidosJugados * 100).toFixed(1) + "%" : "—";
+  const porcentajeAvance = (partidosJugados / 104 * 100).toFixed(0) + "%";
+
+  cont.innerHTML = `
+    <div class="stat-card">
+      <div class="card-title"><span class="ic">🌍</span> Torneo en números · ${porcentajeAvance} jugado</div>
+      <div class="big-stats" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="big-stat"><div class="v">${partidosJugados}</div><div class="k">Partidos jugados</div></div>
+        <div class="big-stat"><div class="v">${golesTotal}</div><div class="k">Goles totales</div></div>
+        <div class="big-stat gold"><div class="v">${promedioGoles}</div><div class="k">Promedio de goles</div></div>
+        <div class="big-stat"><div class="v">${pctEmpates}</div><div class="k">% de empates</div></div>
+      </div>
+    </div>`;
 }
 
 /* ---------- Stats ---------- */
