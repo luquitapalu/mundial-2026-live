@@ -428,6 +428,13 @@
   tr.best-third .pos { background: #3da0ff; color: #04122a; }
   tr.best-third td.team-col { box-shadow: inset 3px 0 0 #3da0ff; }
 
+  /* Tabla de mejores terceros (ancho completo, debajo de los grupos) */
+  .third-card { margin-top: 18px; }
+  .third-table .grp-col { font-weight: 700; color: var(--gold); }
+  /* La barra azul del best-third va en la 1ª columna (Pos), no en Equipo */
+  .third-table tr.best-third td.team-col { box-shadow: none; }
+  .third-table tr.best-third td:first-child { box-shadow: inset 3px 0 0 #3da0ff; }
+
   /* legend */
   .legend {
     display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px;
@@ -630,12 +637,8 @@
 
     <section class="panel" id="panel-clasificaciones">
       <div class="section-head"><h2>Clasificaciones<span>.</span></h2><span class="hint">Avanzan los 2 primeros de cada grupo + los 8 mejores terceros</span></div>
-      <div class="legend">
-        <div class="legend-item"><span class="legend-swatch gold"></span> 1º y 2º de cada grupo · clasifican directo a 16avos</div>
-        <div class="legend-item"><span class="legend-swatch teal"></span> 8 mejores terceros · también avanzan a 16avos</div>
-        <div class="legend-note">Desempate entre terceros, en orden: <b>1)</b> puntos · <b>2)</b> resultado en los partidos entre ellos · <b>3)</b> diferencia de gol.</div>
-      </div>
       <div class="groups-grid" id="standingsContainer"></div>
+      <div id="thirdPlaceContainer"></div>
     </section>
 
     <section class="panel" id="panel-goleadores">
@@ -984,6 +987,54 @@ function renderStandings(clas){
       </div>
     `));
   });
+
+  renderThirdPlaceTable(terceros, mejoresTerceros);
+}
+
+// Tabla de los 12 terceros de cada grupo, ordenados; los 8 mejores en azul (best-third)
+function renderThirdPlaceTable(terceros, mejoresTerceros){
+  const cont = document.getElementById("thirdPlaceContainer");
+  if (!cont) return;
+  cont.innerHTML = "";
+  if (!terceros.length) return;
+
+  const rows = terceros.map((x, i) => {
+    const t = x.t;
+    const rowCls = mejoresTerceros.has(x.g) ? "best-third" : "";
+    const difCls = t.dif > 0 ? "pos-d" : t.dif < 0 ? "neg-d" : "";
+    const difTxt = t.dif > 0 ? "+" + t.dif : t.dif;
+    return `
+      <tr class="${rowCls}">
+        <td><span class="pos">${i+1}</span></td>
+        <td class="grp-col">${esc(x.g)}</td>
+        <td class="team-col"><span class="mini-flag">${t.bandera||"🏳️"}</span> ${esc(t.pais)}</td>
+        <td>${t.pj}</td><td>${t.g}</td><td>${t.e}</td><td>${t.p}</td>
+        <td>${t.gf}</td><td>${t.gc}</td>
+        <td class="dif ${difCls}">${difTxt}</td>
+        <td class="pts">${t.pts}</td>
+      </tr>`;
+  }).join("");
+
+  const nota = terceros.length < 12
+    ? `<div class="empty-mini">Se completará cuando finalice la fase de grupos.</div>`
+    : "";
+
+  cont.appendChild(el(`
+    <div class="group-card third-card">
+      <h3><span class="gtag">3º</span> Mejores Terceros — Clasificación</h3>
+      <table class="third-table">
+        <thead>
+          <tr>
+            <th>Pos</th><th>Grp</th><th class="team-col">Equipo</th>
+            <th>PJ</th><th>G</th><th>E</th><th>P</th>
+            <th>GF</th><th>GC</th><th>DIF</th><th>PTS</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+      ${nota}
+    </div>
+  `));
 }
 
 /* ---------- Scorers ---------- */
