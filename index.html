@@ -352,6 +352,22 @@
   .live-block .jornada-head { border-bottom-color: var(--red); }
   .live-block .jornada-name { color: var(--red-bright); }
 
+  /* ---------- PLAY-OFF (bracket) ---------- */
+  .bracket { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 16px; }
+  .bracket-round { min-width: 240px; flex-shrink: 0; }
+  .bracket-round-title {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; font-size: 14px;
+    color: var(--gold); margin-bottom: 14px; text-align: center;
+  }
+  .bracket-matches { display: flex; flex-direction: column; gap: 12px; }
+  /* Card compacta del bracket (reusa .match) */
+  .po-card { padding: 12px 14px; }
+  .po-card .match-top { margin-bottom: 10px; justify-content: center; }
+  .po-card .team-name { font-size: 14px; }
+  .po-card .score { font-size: 24px; min-width: 20px; }
+  .po-date { color: var(--muted-2); font-size: 11px; letter-spacing: .5px; }
+
   .grupo-sub { margin-bottom: 22px; }
   .grupo-sub-label {
     display: flex; align-items: center; gap: 9px;
@@ -621,6 +637,7 @@
   </div>
   <nav id="nav" hidden>
     <button class="tab active" data-tab="partidos">Partidos</button>
+    <button class="tab" data-tab="playoff">Play-Off</button>
     <button class="tab" data-tab="clasificaciones">Clasificaciones</button>
     <button class="tab" data-tab="goleadores">Goleadores</button>
     <button class="tab" data-tab="estadisticas">Estadísticas</button>
@@ -631,8 +648,13 @@
   <!-- Content -->
   <div id="content" hidden>
     <section class="panel active" id="panel-partidos">
-      <div class="section-head"><h2>Partidos<span>.</span></h2><span class="hint">Los 104 partidos · en orden cronológico por día y horario</span></div>
+      <div class="section-head"><h2>Partidos<span>.</span></h2><span class="hint">Fase de grupos · en orden cronológico por día y horario</span></div>
       <div id="matchesContainer"></div>
+    </section>
+
+    <section class="panel" id="panel-playoff">
+      <div class="section-head"><h2>Play-Off<span>.</span></h2><span class="hint">Bracket de la fase eliminatoria</span></div>
+      <div id="playoffContainer"></div>
     </section>
 
     <section class="panel" id="panel-clasificaciones">
@@ -796,6 +818,7 @@ function render(data){
   const grupos = (tieneClas ? data.clasificaciones : buildGrupos(data.standings)) || {};
 
   renderMatches(data.partidos || []);
+  renderPlayoff(data.partidos || []);
   renderStandings(grupos);
   renderScorers(data.goleadores || []);
   setupStats(data, grupos);
@@ -824,6 +847,8 @@ function byLiveThenTime(a, b){
 }
 
 function renderMatches(partidos){
+  // Los partidos de eliminatoria (sin grupo) van en la tab Play-Off, no acá
+  partidos = partidos.filter(p => p.grupo);
   const cont = document.getElementById("matchesContainer");
   cont.innerHTML = "";
 
@@ -934,6 +959,96 @@ function matchCard(m){
         </div>
       </div>
       ${foot}
+    </div>
+  `);
+}
+
+/* ---------- Play-Off (bracket) ---------- */
+// Nombre corto de ronda para el título de la columna
+const RONDA_LABEL = {
+  "Dieciseisavos de final": "16avos",
+  "Octavos de final": "Octavos",
+  "Cuartos de final": "Cuartos",
+  "Semifinales": "Semifinal",
+  "Tercer puesto": "Tercer puesto",
+  "Final": "Final",
+};
+function roundLabel(j){ return RONDA_LABEL[j] || j || "Eliminatoria"; }
+
+function renderPlayoff(partidos){
+  const cont = document.getElementById("playoffContainer");
+  if (!cont) return;
+  cont.innerHTML = "";
+
+  // Eliminatoria = partidos sin grupo
+  const ko = (partidos || []).filter(p => !p.grupo);
+  if (!ko.length) {
+    cont.innerHTML = `<div class="empty-mini">El bracket se completará cuando avance el torneo.</div>`;
+    return;
+  }
+
+  // Agrupar por ronda. Usamos m.ronda si existe; si no, m.jornada; ordenamos por m.orden.
+  const rondas = [];
+  const map = {};
+  ko.forEach(p => {
+    const key = p.ronda || p.jornada || "Eliminatoria";
+    if (!map[key]) { map[key] = { titulo: key, orden: p.orden ?? 99, matches: [] }; rondas.push(map[key]); }
+    map[key].matches.push(p);
+  });
+  rondas.sort((a, b) => a.orden - b.orden);
+
+  const bracket = el(`<div class="bracket"></div>`);
+  rondas.forEach(r => {
+    const col = el(`<div class="bracket-round"></div>`);
+    col.appendChild(el(`<div class="bracket-round-title">${esc(roundLabel(r.titulo))}</div>`));
+    const list = el(`<div class="bracket-matches"></div>`);
+    r.matches
+      .slice()
+      .sort((a, b) => (a.utc || a.hora || "").localeCompare(b.utc || b.hora || ""))
+      .forEach(m => list.appendChild(playoffCard(m)));
+    col.appendChild(list);
+    bracket.appendChild(col);
+  });
+  cont.appendChild(bracket);
+}
+
+function playoffCard(m){
+  const live = m.estado === "in_play";
+  const finished = m.estado === "finished";
+  const hasScore = m.goles_local != null && m.goles_visitante != null;
+
+  let lCls = "", vCls = "";
+  if (finished && hasScore) {
+    if (m.goles_local > m.goles_visitante) { lCls = "winner"; vCls = "loser"; }
+    else if (m.goles_local < m.goles_visitante) { vCls = "winner"; lCls = "loser"; }
+  }
+
+  const sL = hasScore ? m.goles_local : "—";
+  const sV = hasScore ? m.goles_visitante : "—";
+  const flag = b => b ? `<span class="flag">${b}</span>` : `<span class="flag tbd">⚽</span>`;
+  // Equipo aún sin definir (slot) = no tiene bandera → estilo "slot"
+  const slotL = m.bandera_local ? "" : "slot";
+  const slotV = m.bandera_visitante ? "" : "slot";
+
+  const top = live ? `<span class="live-badge"><span class="blink"></span>En vivo</span>`
+    : finished ? `<span class="ft-tag">Final</span>`
+    : `<span class="po-date">${fmtFechaCortaM(m)} · ${fmtHoraM(m)} hs</span>`;
+
+  return el(`
+    <div class="match po-card ${live ? "live" : ""}">
+      <div class="match-top">${top}</div>
+      <div class="teams">
+        <div class="team-row ${lCls}">
+          ${flag(m.bandera_local)}
+          <span class="team-name ${slotL}">${esc(m.local)}</span>
+          <span class="score">${sL}</span>
+        </div>
+        <div class="team-row ${vCls}">
+          ${flag(m.bandera_visitante)}
+          <span class="team-name ${slotV}">${esc(m.visitante)}</span>
+          <span class="score">${sV}</span>
+        </div>
+      </div>
     </div>
   `);
 }
