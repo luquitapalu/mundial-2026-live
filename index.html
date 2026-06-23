@@ -341,6 +341,13 @@
     font-family: 'Anton', sans-serif; font-size: 25px;
     text-transform: uppercase; letter-spacing: .5px;
   }
+  /* Acordeón de días */
+  .jornada-head.collapsible { cursor: pointer; user-select: none; }
+  .jornada-head.collapsible:hover { opacity: .85; }
+  .chevron { margin-left: auto; font-size: 18px; color: var(--muted); transition: transform .25s; }
+  .chevron.open { transform: rotate(180deg); }
+  .collapsible-body { overflow: hidden; transition: max-height .35s ease, opacity .25s ease; }
+  .collapsible-body.collapsed { max-height: 0 !important; opacity: 0; }
   .live-count {
     display: inline-flex; align-items: center; gap: 7px;
     background: var(--red); color: #fff;
@@ -917,12 +924,26 @@ function renderMatches(partidos){
     map[key].matches.push(p);
   });
 
+  const hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
+
   dias.forEach(key => {
     const dia = map[key];
     const block = el(`<div class="jornada-block"></div>`);
     const liveCount = dia.matches.filter(m => m.estado === "in_play").length;
     const liveTag = liveCount ? `<span class="live-count"><span class="blink"></span>${liveCount} en vivo</span>` : "";
-    block.appendChild(el(`<div class="jornada-head"><span class="jornada-name">${esc(dia.label)}</span>${liveTag}</div>`));
+
+    // ¿El día ya pasó y está todo finalizado? -> arranca colapsado
+    const fechaDia = matchWhen(dia.matches[0]);
+    let esPasado = false;
+    if (fechaDia) {
+      const soloDia = new Date(fechaDia);
+      soloDia.setHours(0, 0, 0, 0);
+      esPasado = soloDia < hoy && dia.matches.every(m => m.estado === "finished");
+    }
+
+    const head = el(`<div class="jornada-head collapsible"><span class="jornada-name">${esc(dia.label)}</span>${liveTag}<span class="chevron">▾</span></div>`);
+    block.appendChild(head);
 
     const grid = el(`<div class="match-grid"></div>`);
     // Dentro del día, por horario (instante real)
@@ -930,8 +951,39 @@ function renderMatches(partidos){
       .slice()
       .sort((a, b) => (a.utc || a.hora || "").localeCompare(b.utc || b.hora || ""))
       .forEach(m => grid.appendChild(matchCard(m)));
-    block.appendChild(grid);
+
+    const body = el(`<div class="collapsible-body"></div>`);
+    body.appendChild(grid);
+    block.appendChild(body);
     cont.appendChild(block);
+
+    const chev = head.querySelector(".chevron");
+    if (esPasado) {
+      head.dataset.collapsed = "true";
+      body.classList.add("collapsed");
+      body.style.maxHeight = "0";
+    } else {
+      head.dataset.collapsed = "false";
+      chev.classList.add("open");   // expandido por defecto (hoy / futuro)
+    }
+
+    head.addEventListener("click", () => {
+      const isCollapsed = body.classList.contains("collapsed");
+      if (isCollapsed) {
+        body.classList.remove("collapsed");
+        body.style.maxHeight = body.scrollHeight + "px";
+        chev.classList.add("open");
+        head.dataset.collapsed = "false";
+      } else {
+        body.style.maxHeight = body.scrollHeight + "px"; // fija altura antes de animar
+        requestAnimationFrame(() => {
+          body.classList.add("collapsed");
+          body.style.maxHeight = "0";
+          chev.classList.remove("open");
+          head.dataset.collapsed = "true";
+        });
+      }
+    });
   });
 }
 
