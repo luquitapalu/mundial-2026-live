@@ -3,7 +3,7 @@
 **Dashboard en tiempo real del Mundial FIFA 2026 — Canadá · México · Estados Unidos**
 
 [![Live](https://img.shields.io/badge/Live-luquitapalu.github.io-ef2b3d?style=flat-square&logo=github)](https://luquitapalu.github.io/mundial-2026-live)
-[![HTML](https://img.shields.io/badge/HTML-CSS-JS-0c1b3a?style=flat-square&logo=html5)](https://luquitapalu.github.io/mundial-2026-live)
+[![HTML](https://img.shields.io/badge/Stack-HTML%20%7C%20CSS%20%7C%20JS-0c1b3a?style=flat-square)](https://luquitapalu.github.io/mundial-2026-live)
 [![API](https://img.shields.io/badge/API-football--data.org-f5c451?style=flat-square)](https://www.football-data.org/)
 
 ---
