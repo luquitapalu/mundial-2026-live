@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-26T14:43:58.100862+00:00",
+  "ultima_actualizacion": "2026-06-27T02:45:55.119857+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -1262,13 +1262,13 @@
       "utc": "2026-06-26T19:00:00Z",
       "fecha": "2026-06-26",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Noruega",
       "bandera_local": "🇳🇴",
       "visitante": "Francia",
       "bandera_visitante": "🇫🇷",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 1,
+      "goles_visitante": 4,
       "estadio": "",
       "minuto": null,
       "id": 61
@@ -1282,13 +1282,13 @@
       "utc": "2026-06-26T19:00:00Z",
       "fecha": "2026-06-26",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Senegal",
       "bandera_local": "🇸🇳",
       "visitante": "Irak",
       "bandera_visitante": "🇮🇶",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 5,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 62
@@ -1302,13 +1302,13 @@
       "utc": "2026-06-27T00:00:00Z",
       "fecha": "2026-06-27",
       "hora": "00:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Uruguay",
       "bandera_local": "🇺🇾",
       "visitante": "España",
       "bandera_visitante": "🇪🇸",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 0,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 63
@@ -1322,13 +1322,13 @@
       "utc": "2026-06-27T00:00:00Z",
       "fecha": "2026-06-27",
       "hora": "00:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Cabo Verde",
       "bandera_local": "🇨🇻",
       "visitante": "Arabia Saudita",
       "bandera_visitante": "🇸🇦",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 0,
+      "goles_visitante": 0,
       "estadio": "",
       "minuto": null,
       "id": 64
@@ -2489,99 +2489,99 @@
       {
         "pais": "España",
         "bandera": "🇪🇸",
-        "pj": 2,
-        "g": 1,
+        "pj": 3,
+        "g": 2,
         "e": 1,
         "p": 0,
-        "gf": 4,
+        "gf": 5,
         "gc": 0,
-        "dif": 4,
-        "pts": 4
-      },
-      {
-        "pais": "Uruguay",
-        "bandera": "🇺🇾",
-        "pj": 2,
-        "g": 0,
-        "e": 2,
-        "p": 0,
-        "gf": 3,
-        "gc": 3,
-        "dif": 0,
-        "pts": 2
+        "dif": 5,
+        "pts": 7
       },
       {
         "pais": "Cabo Verde",
         "bandera": "🇨🇻",
-        "pj": 2,
+        "pj": 3,
         "g": 0,
-        "e": 2,
+        "e": 3,
         "p": 0,
         "gf": 2,
         "gc": 2,
         "dif": 0,
+        "pts": 3
+      },
+      {
+        "pais": "Uruguay",
+        "bandera": "🇺🇾",
+        "pj": 3,
+        "g": 0,
+        "e": 2,
+        "p": 1,
+        "gf": 3,
+        "gc": 4,
+        "dif": -1,
         "pts": 2
       },
       {
         "pais": "Arabia Saudita",
         "bandera": "🇸🇦",
-        "pj": 2,
+        "pj": 3,
         "g": 0,
-        "e": 1,
+        "e": 2,
         "p": 1,
         "gf": 1,
         "gc": 5,
         "dif": -4,
-        "pts": 1
+        "pts": 2
       }
     ],
     "I": [
       {
         "pais": "Francia",
         "bandera": "🇫🇷",
-        "pj": 2,
-        "g": 2,
+        "pj": 3,
+        "g": 3,
         "e": 0,
         "p": 0,
-        "gf": 6,
-        "gc": 1,
-        "dif": 5,
-        "pts": 6
+        "gf": 10,
+        "gc": 2,
+        "dif": 8,
+        "pts": 9
       },
       {
         "pais": "Noruega",
         "bandera": "🇳🇴",
-        "pj": 2,
+        "pj": 3,
         "g": 2,
         "e": 0,
-        "p": 0,
-        "gf": 7,
-        "gc": 3,
-        "dif": 4,
+        "p": 1,
+        "gf": 8,
+        "gc": 7,
+        "dif": 1,
         "pts": 6
       },
       {
         "pais": "Senegal",
         "bandera": "🇸🇳",
-        "pj": 2,
-        "g": 0,
+        "pj": 3,
+        "g": 1,
         "e": 0,
         "p": 2,
-        "gf": 3,
+        "gf": 8,
         "gc": 6,
-        "dif": -3,
-        "pts": 0
+        "dif": 2,
+        "pts": 3
       },
       {
         "pais": "Irak",
         "bandera": "🇮🇶",
-        "pj": 2,
+        "pj": 3,
         "g": 0,
         "e": 0,
-        "p": 2,
+        "p": 3,
         "gf": 1,
-        "gc": 7,
-        "dif": -6,
+        "gc": 12,
+        "dif": -11,
         "pts": 0
       }
     ],
@@ -2759,7 +2759,7 @@
       "pais": "Francia",
       "bandera": "🇫🇷",
       "goles": 4,
-      "asistencias": null
+      "asistencias": 2
     },
     {
       "pos": 4,
@@ -2771,6 +2771,14 @@
     },
     {
       "pos": 5,
+      "jugador": "Ousmane Dembélé",
+      "pais": "Francia",
+      "bandera": "🇫🇷",
+      "goles": 4,
+      "asistencias": 1
+    },
+    {
+      "pos": 6,
       "jugador": "Ismael Saibari",
       "pais": "Marruecos",
       "bandera": "🇲🇦",
@@ -2778,7 +2786,7 @@
       "asistencias": null
     },
     {
-      "pos": 6,
+      "pos": 7,
       "jugador": "Deniz Undav",
       "pais": "Alemania",
       "bandera": "🇩🇪",
@@ -2786,7 +2794,7 @@
       "asistencias": 2
     },
     {
-      "pos": 7,
+      "pos": 8,
       "jugador": "Johan Manzambi",
       "pais": "Suiza",
       "bandera": "🇨🇭",
@@ -2794,7 +2802,7 @@
       "asistencias": 1
     },
     {
-      "pos": 8,
+      "pos": 9,
       "jugador": "Jonathan David",
       "pais": "Canadá",
       "bandera": "🇨🇦",
@@ -2802,7 +2810,7 @@
       "asistencias": null
     },
     {
-      "pos": 9,
+      "pos": 10,
       "jugador": "Matheus Cunha",
       "pais": "Brasil",
       "bandera": "🇧🇷",
@@ -2810,7 +2818,7 @@
       "asistencias": null
     },
     {
-      "pos": 10,
+      "pos": 11,
       "jugador": "Brian Brobbey",
       "pais": "Países Bajos",
       "bandera": "🇳🇱",
@@ -2818,7 +2826,15 @@
       "asistencias": null
     },
     {
-      "pos": 11,
+      "pos": 12,
+      "jugador": "Ismaïla Sarr",
+      "pais": "Senegal",
+      "bandera": "🇸🇳",
+      "goles": 3,
+      "asistencias": 1
+    },
+    {
+      "pos": 13,
       "jugador": "Julián Quiñones",
       "pais": "México",
       "bandera": "🇲🇽",
@@ -2826,7 +2842,7 @@
       "asistencias": null
     },
     {
-      "pos": 12,
+      "pos": 14,
       "jugador": "Cyle Larin",
       "pais": "Canadá",
       "bandera": "🇨🇦",
@@ -2834,7 +2850,7 @@
       "asistencias": null
     },
     {
-      "pos": 13,
+      "pos": 15,
       "jugador": "Folarin Balogun",
       "pais": "Estados Unidos",
       "bandera": "🇺🇸",
@@ -2842,7 +2858,7 @@
       "asistencias": null
     },
     {
-      "pos": 14,
+      "pos": 16,
       "jugador": "Kai Havertz",
       "pais": "Alemania",
       "bandera": "🇩🇪",
@@ -2850,7 +2866,7 @@
       "asistencias": null
     },
     {
-      "pos": 15,
+      "pos": 17,
       "jugador": "Crysencio Summerville",
       "pais": "Países Bajos",
       "bandera": "🇳🇱",
@@ -2858,7 +2874,7 @@
       "asistencias": 1
     },
     {
-      "pos": 16,
+      "pos": 18,
       "jugador": "Daichi Kamada",
       "pais": "Japón",
       "bandera": "🇯🇵",
@@ -2866,7 +2882,7 @@
       "asistencias": null
     },
     {
-      "pos": 17,
+      "pos": 19,
       "jugador": "Yasin Ayari",
       "pais": "Suecia",
       "bandera": "🇸🇪",
@@ -2874,28 +2890,12 @@
       "asistencias": null
     },
     {
-      "pos": 18,
+      "pos": 20,
       "jugador": "Maximiliano Araújo",
       "pais": "Uruguay",
       "bandera": "🇺🇾",
       "goles": 2,
       "asistencias": 1
-    },
-    {
-      "pos": 19,
-      "jugador": "Elijah Just",
-      "pais": "Nueva Zelanda",
-      "bandera": "🇳🇿",
-      "goles": 2,
-      "asistencias": null
-    },
-    {
-      "pos": 20,
-      "jugador": "Harry Kane",
-      "pais": "Inglaterra",
-      "bandera": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "goles": 2,
-      "asistencias": null
     }
   ],
   "estadisticas_2026": {
