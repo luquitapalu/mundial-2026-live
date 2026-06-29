@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-06-28T16:23:58.479453+00:00",
+  "ultima_actualizacion": "2026-06-29T00:17:49.630965+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -1502,13 +1502,13 @@
       "utc": "2026-06-28T19:00:00Z",
       "fecha": "2026-06-28",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "Sudáfrica",
       "bandera_local": "🇿🇦",
       "visitante": "Canadá",
       "bandera_visitante": "🇨🇦",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 0,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 73
