@@ -370,7 +370,8 @@
   }
   .bracket-side { display: flex; gap: 8px; }
   .bracket-left { flex-direction: row; }
-  .bracket-right { flex-direction: row-reverse; }
+  /* DOM del lado derecho ya está espejado (Semifinal primero), así la llave abre hacia el centro */
+  .bracket-right { flex-direction: row; }
   .bracket-center {
     display: flex;
     flex-direction: column;
@@ -1156,7 +1157,15 @@ function renderPlayoff(partidos) {
       const ganoLocal = p.goles_local > p.goles_visitante;
       return { nombre: ganoLocal ? p.local : p.visitante, bandera: ganoLocal ? p.bandera_local : p.bandera_visitante };
     }
-    return { nombre: p.local || "?", bandera: p.bandera_local || "" }; // pre-partido: mostrar fixture real
+    return { nombre: "?", bandera: "" }; // aún sin jugar: el ganador se define en cancha
+  }
+
+  // Helper: perdedor de un partido (para el 3er puesto). "?" si todavía no se jugó.
+  function slotPerdedor(jornada, orden) {
+    const p = porRonda[jornada]?.[orden];
+    if (!p || p.estado !== "finished") return { nombre: "?", bandera: "" };
+    const ganoLocal = p.goles_local > p.goles_visitante;
+    return { nombre: ganoLocal ? p.visitante : p.local, bandera: ganoLocal ? p.bandera_visitante : p.bandera_local };
   }
 
   // Helper: renderizar una match card del bracket
@@ -1245,7 +1254,7 @@ function renderPlayoff(partidos) {
         ${matchCard(porRonda[r1]?.[1], slot(r2,1), slot(r2,2))}
         <div class="bracket-champion">🏆 Campeón</div>
         <div class="bracket-round-title" style="margin-top:32px;">3er Puesto</div>
-        ${matchCard(porRonda[r3]?.[1], slot(r2,1), slot(r2,2))}
+        ${matchCard(porRonda[r3]?.[1], slotPerdedor(r2,1), slotPerdedor(r2,2))}
       </div>
 
       <!-- LADO DERECHO -->
