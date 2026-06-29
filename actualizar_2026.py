@@ -218,6 +218,66 @@ def update_clasificaciones(d, finished):
     print('clasificaciones[] recalculadas')
 
 
+# ── Normalizar bracket de eliminatoria (orden + jornada) ─────────────────────
+R16_JORNADA = "Dieciseisavos de final"
+
+# Fixture real de 16avos: pareja de equipos (nombres canónicos del TEAM_MAP) -> orden.
+# Permite alinear el bracket con el fixture hardcodeado de renderPlayoff aunque el
+# orden de fdId de football-data no coincida. Debe espejar el HTML (ojo nombres:
+# "Estados Unidos"/"Bosnia y Herzegovina"/"RD Congo", no "EEUU"/"Bosnia"/"Congo").
+R32_FIXTURE = {
+    frozenset({"Alemania", "Paraguay"}): 1,
+    frozenset({"Francia", "Suecia"}): 2,
+    frozenset({"Sudáfrica", "Canadá"}): 3,
+    frozenset({"Países Bajos", "Marruecos"}): 4,
+    frozenset({"Portugal", "Croacia"}): 5,
+    frozenset({"España", "Austria"}): 6,
+    frozenset({"Estados Unidos", "Bosnia y Herzegovina"}): 7,
+    frozenset({"Bélgica", "Senegal"}): 8,
+    frozenset({"Brasil", "Japón"}): 9,
+    frozenset({"Noruega", "Costa de Marfil"}): 10,
+    frozenset({"México", "Ecuador"}): 11,
+    frozenset({"Inglaterra", "RD Congo"}): 12,
+    frozenset({"Argentina", "Cabo Verde"}): 13,
+    frozenset({"Australia", "Egipto"}): 14,
+    frozenset({"Suiza", "Argelia"}): 15,
+    frozenset({"Colombia", "Ghana"}): 16,
+}
+
+
+def normalize_playoff(d):
+    """Deja la estructura del bracket como la espera la página (renderPlayoff):
+    - jornada "Tercer puesto" -> "Tercer y cuarto puesto"
+    - 16avos: orden alineado al fixture por nombre de equipo (cuando ya están definidos
+      los 16 cruces); si todavía no, orden por fdId como placeholder.
+    - resto de rondas: orden = 1..N por fdId.
+    Idempotente: se puede correr en cada actualización sin efectos secundarios."""
+    porRonda = {}
+    for p in d.get('partidos', []):
+        if p.get('fase') != 'eliminatoria':
+            continue
+        if p.get('jornada') == 'Tercer puesto':
+            p['jornada'] = 'Tercer y cuarto puesto'
+        porRonda.setdefault(p['jornada'], []).append(p)
+
+    for ronda, arr in porRonda.items():
+        arr.sort(key=lambda p: p.get('fdId') or 0)
+
+        if ronda == R16_JORNADA:
+            ordenes = [R32_FIXTURE.get(frozenset({p.get('local'), p.get('visitante')})) for p in arr]
+            # Solo si los 16 cruces matchean el fixture y dan órdenes únicos
+            if all(ordenes) and len(set(ordenes)) == len(arr):
+                for p, orden in zip(arr, ordenes):
+                    p['orden'] = orden
+                print('16avos: orden alineado al fixture por nombre de equipo')
+                continue
+            print('16avos aún sin definir por completo — orden por fdId (placeholder)')
+
+        for i, p in enumerate(arr, start=1):
+            p['orden'] = i
+    print('bracket normalizado (orden por ronda + jornada 3er puesto)')
+
+
 # ── Persistir en data/live.json ──────────────────────────────────────────────
 def update_live_json(payload, finished):
     print(f'Cargando {JSON_PATH}')
@@ -226,6 +286,7 @@ def update_live_json(payload, finished):
 
     apply_live_to_partidos(d, payload)
     update_clasificaciones(d, finished)
+    normalize_playoff(d)
 
     # Goleadores: solo si ya hay al menos 1 partido finalizado. Tolerante a fallos:
     # un error de la API (rate limit / red / falta de key) NO interrumpe el script.

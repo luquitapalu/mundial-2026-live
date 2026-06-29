@@ -34,6 +34,7 @@
     --card: #0d1d3d;
     --card-2: #102347;
     --line: #1c3360;
+    --border: var(--line);
     --white: #f4f7fc;
     --muted: #8ea3c8;
     --muted-2: #5e7099;
@@ -359,21 +360,91 @@
   .live-block .jornada-head { border-bottom-color: var(--red); }
   .live-block .jornada-name { color: var(--red-bright); }
 
-  /* ---------- PLAY-OFF (bracket) ---------- */
-  .bracket { display: flex; gap: 24px; overflow-x: auto; padding-bottom: 16px; }
-  .bracket-round { min-width: 240px; flex-shrink: 0; }
-  .bracket-round-title {
-    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase; font-size: 14px;
-    color: var(--gold); margin-bottom: 14px; text-align: center;
+  /* ---------- PLAY-OFF (bracket doble llave) ---------- */
+  .bracket-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 24px;
   }
-  .bracket-matches { display: flex; flex-direction: column; gap: 12px; }
-  /* Card compacta del bracket (reusa .match) */
-  .po-card { padding: 12px 14px; }
-  .po-card .match-top { margin-bottom: 10px; justify-content: center; }
-  .po-card .team-name { font-size: 14px; }
-  .po-card .score { font-size: 24px; min-width: 20px; }
-  .po-date { color: var(--muted-2); font-size: 11px; letter-spacing: .5px; }
+  .bracket-side { display: flex; gap: 8px; }
+  .bracket-left { flex-direction: row; }
+  .bracket-right { flex-direction: row-reverse; }
+  .bracket-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 180px;
+    padding-top: 80px;
+  }
+  .bracket-round {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 180px;
+  }
+  .bracket-round-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .bracket-matches {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: 1;
+    gap: 10px;
+  }
+  .bracket-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  .bracket-card.en-vivo { border-color: var(--red); }
+  .bracket-team {
+    padding: 3px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bracket-score {
+    text-align: center;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 12px;
+    padding: 2px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 4px 0;
+  }
+  .bracket-champion {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-top: 10px;
+  }
+  .live-dot {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--red); margin-right: 5px; vertical-align: middle;
+    animation: blink 1s steps(2, start) infinite;
+  }
+
+  @media (max-width: 768px) {
+    .bracket-wrapper { flex-direction: column; }
+    .bracket-side { flex-direction: column; }
+    .bracket-right { flex-direction: column; }
+    .bracket-round { min-width: unset; }
+  }
 
   .grupo-sub { margin-bottom: 22px; }
   .grupo-sub-label {
@@ -1060,94 +1131,163 @@ function matchCard(m){
   `);
 }
 
-/* ---------- Play-Off (bracket) ---------- */
-// Nombre corto de ronda para el título de la columna
-const RONDA_LABEL = {
-  "Dieciseisavos de final": "16avos",
-  "Octavos de final": "Octavos",
-  "Cuartos de final": "Cuartos",
-  "Semifinales": "Semifinal",
-  "Tercer puesto": "Tercer puesto",
-  "Final": "Final",
-};
-function roundLabel(j){ return RONDA_LABEL[j] || j || "Eliminatoria"; }
+/* ---------- Play-Off (bracket doble llave) ---------- */
+function renderPlayoff(partidos) {
+  const container = document.getElementById("panel-playoff");
+  const eliminatorios = partidos.filter(p => p.fase === "eliminatoria");
 
-function renderPlayoff(partidos){
-  const cont = document.getElementById("playoffContainer");
-  if (!cont) return;
-  cont.innerHTML = "";
-
-  // Eliminatoria = partidos sin grupo
-  const ko = (partidos || []).filter(p => !p.grupo);
-  if (!ko.length) {
-    cont.innerHTML = `<div class="empty-mini">El bracket se completará cuando avance el torneo.</div>`;
+  if (!eliminatorios.length) {
+    container.innerHTML = `<div class="section-head"><h2>Play-Off<span>.</span></h2></div><p class="stats-empty">El bracket se completará cuando avance el torneo.</p>`;
     return;
   }
 
-  // Agrupar por ronda. Usamos m.ronda si existe; si no, m.jornada; ordenamos por m.orden.
-  const rondas = [];
-  const map = {};
-  ko.forEach(p => {
-    const key = p.ronda || p.jornada || "Eliminatoria";
-    if (!map[key]) { map[key] = { titulo: key, orden: p.orden ?? 99, matches: [] }; rondas.push(map[key]); }
-    map[key].matches.push(p);
+  // Agrupar por jornada
+  const porRonda = {};
+  eliminatorios.forEach(p => {
+    if (!porRonda[p.jornada]) porRonda[p.jornada] = {};
+    porRonda[p.jornada][p.orden] = p;
   });
-  rondas.sort((a, b) => a.orden - b.orden);
 
-  const bracket = el(`<div class="bracket"></div>`);
-  rondas.forEach(r => {
-    const col = el(`<div class="bracket-round"></div>`);
-    col.appendChild(el(`<div class="bracket-round-title">${esc(roundLabel(r.titulo))}</div>`));
-    const list = el(`<div class="bracket-matches"></div>`);
-    r.matches
-      .slice()
-      .sort((a, b) => (a.utc || a.hora || "").localeCompare(b.utc || b.hora || ""))
-      .forEach(m => list.appendChild(playoffCard(m)));
-    col.appendChild(list);
-    bracket.appendChild(col);
-  });
-  cont.appendChild(bracket);
-}
-
-function playoffCard(m){
-  const live = m.estado === "in_play";
-  const finished = m.estado === "finished";
-  const hasScore = m.goles_local != null && m.goles_visitante != null;
-
-  let lCls = "", vCls = "";
-  if (finished && hasScore) {
-    if (m.goles_local > m.goles_visitante) { lCls = "winner"; vCls = "loser"; }
-    else if (m.goles_local < m.goles_visitante) { vCls = "winner"; lCls = "loser"; }
+  // Helper: obtener equipo (ganador si terminó, o placeholder)
+  function slot(jornada, orden) {
+    const p = porRonda[jornada]?.[orden];
+    if (!p) return { nombre: "?", bandera: "" };
+    if (p.estado === "finished") {
+      const ganoLocal = p.goles_local > p.goles_visitante;
+      return { nombre: ganoLocal ? p.local : p.visitante, bandera: ganoLocal ? p.bandera_local : p.bandera_visitante };
+    }
+    return { nombre: p.local || "?", bandera: p.bandera_local || "" }; // pre-partido: mostrar fixture real
   }
 
-  const sL = hasScore ? m.goles_local : "—";
-  const sV = hasScore ? m.goles_visitante : "—";
-  const flag = b => b ? `<span class="flag">${b}</span>` : `<span class="flag tbd">⚽</span>`;
-  // Equipo aún sin definir (slot) = no tiene bandera → estilo "slot"
-  const slotL = m.bandera_local ? "" : "slot";
-  const slotV = m.bandera_visitante ? "" : "slot";
+  // Helper: renderizar una match card del bracket
+  function matchCard(p, slotLocal, slotVisitante) {
+    const score = p && p.estado !== "scheduled"
+      ? `${p.goles_local ?? 0} - ${p.goles_visitante ?? 0}`
+      : `vs`;
+    const live = p?.estado === "in_play" ? `<span class="live-dot"></span>` : "";
+    return `
+      <div class="bracket-card ${p?.estado === "in_play" ? "en-vivo" : ""}">
+        <div class="bracket-team">${slotLocal.bandera} ${slotLocal.nombre}</div>
+        <div class="bracket-score">${live}${score}</div>
+        <div class="bracket-team">${slotVisitante.bandera} ${slotVisitante.nombre}</div>
+      </div>`;
+  }
 
-  const top = live ? `<span class="live-badge"><span class="blink"></span>En vivo</span>`
-    : finished ? `<span class="ft-tag">Final</span>`
-    : `<span class="po-date">${fmtFechaCortaM(m)} · ${fmtHoraM(m)} hs</span>`;
+  // Construir HTML del bracket
+  // Lado izquierdo: órdenes 1-8 en 16avos, 1-4 en octavos, 1-2 en cuartos, 1 en semis
+  // Lado derecho: órdenes 9-16 en 16avos, 5-8 en octavos, 3-4 en cuartos, 2 en semis
 
-  return el(`
-    <div class="match po-card ${live ? "live" : ""}">
-      <div class="match-top">${top}</div>
-      <div class="teams">
-        <div class="team-row ${lCls}">
-          ${flag(m.bandera_local)}
-          <span class="team-name ${slotL}">${esc(m.local)}</span>
-          <span class="score">${sL}</span>
+  const r16 = "Dieciseisavos de final";
+  const r8 = "Octavos de final";
+  const r4 = "Cuartos de final";
+  const r2 = "Semifinales";
+  const r1 = "Final";
+  const r3 = "Tercer y cuarto puesto";
+
+  // Para cada partido de octavos, los slots vienen de los ganadores de 16avos
+  function octavosSlot(ordenOctavos) {
+    const p = porRonda[r8]?.[ordenOctavos];
+    if (p?.estado !== "scheduled") return { local: slot(r8, ordenOctavos), visitante: slot(r8, ordenOctavos) }; // ya tiene datos reales
+    // Si no hay datos, inferir de 16avos
+    const base = (ordenOctavos - 1) * 2;
+    return {
+      local: { nombre: `G. partido ${base + 1}`, bandera: "" },
+      visitante: { nombre: `G. partido ${base + 2}`, bandera: "" }
+    };
+  }
+
+  container.innerHTML = `
+    <div class="section-head"><h2>Play-Off<span>.</span></h2><span class="hint">Bracket de la fase eliminatoria</span></div>
+    <div class="bracket-wrapper">
+
+      <!-- LADO IZQUIERDO -->
+      <div class="bracket-side bracket-left">
+        <div class="bracket-round">
+          <div class="bracket-round-title">Dieciseisavos</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r16]?.[1], {nombre: "Alemania", bandera:"🇩🇪"}, {nombre:"Paraguay", bandera:"🇵🇾"})}
+            ${matchCard(porRonda[r16]?.[2], {nombre: "Francia", bandera:"🇫🇷"}, {nombre:"Suecia", bandera:"🇸🇪"})}
+            ${matchCard(porRonda[r16]?.[3], {nombre: "Sudáfrica", bandera:"🇿🇦"}, {nombre:"Canadá", bandera:"🇨🇦"})}
+            ${matchCard(porRonda[r16]?.[4], {nombre: "Países Bajos", bandera:"🇳🇱"}, {nombre:"Marruecos", bandera:"🇲🇦"})}
+            ${matchCard(porRonda[r16]?.[5], {nombre: "Portugal", bandera:"🇵🇹"}, {nombre:"Croacia", bandera:"🇭🇷"})}
+            ${matchCard(porRonda[r16]?.[6], {nombre: "España", bandera:"🇪🇸"}, {nombre:"Austria", bandera:"🇦🇹"})}
+            ${matchCard(porRonda[r16]?.[7], {nombre: "EEUU", bandera:"🇺🇸"}, {nombre:"Bosnia", bandera:"🇧🇦"})}
+            ${matchCard(porRonda[r16]?.[8], {nombre: "Bélgica", bandera:"🇧🇪"}, {nombre:"Senegal", bandera:"🇸🇳"})}
+          </div>
         </div>
-        <div class="team-row ${vCls}">
-          ${flag(m.bandera_visitante)}
-          <span class="team-name ${slotV}">${esc(m.visitante)}</span>
-          <span class="score">${sV}</span>
+        <div class="bracket-round">
+          <div class="bracket-round-title">Octavos</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r8]?.[1], slot(r16,1), slot(r16,2))}
+            ${matchCard(porRonda[r8]?.[2], slot(r16,3), slot(r16,4))}
+            ${matchCard(porRonda[r8]?.[3], slot(r16,5), slot(r16,6))}
+            ${matchCard(porRonda[r8]?.[4], slot(r16,7), slot(r16,8))}
+          </div>
+        </div>
+        <div class="bracket-round">
+          <div class="bracket-round-title">Cuartos</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r4]?.[1], slot(r8,1), slot(r8,2))}
+            ${matchCard(porRonda[r4]?.[2], slot(r8,3), slot(r8,4))}
+          </div>
+        </div>
+        <div class="bracket-round">
+          <div class="bracket-round-title">Semifinal</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r2]?.[1], slot(r4,1), slot(r4,2))}
+          </div>
         </div>
       </div>
-    </div>
-  `);
+
+      <!-- CENTRO: Final + Tercer puesto -->
+      <div class="bracket-center">
+        <div class="bracket-round-title">Final</div>
+        ${matchCard(porRonda[r1]?.[1], slot(r2,1), slot(r2,2))}
+        <div class="bracket-champion">🏆 Campeón</div>
+        <div class="bracket-round-title" style="margin-top:32px;">3er Puesto</div>
+        ${matchCard(porRonda[r3]?.[1], slot(r2,1), slot(r2,2))}
+      </div>
+
+      <!-- LADO DERECHO -->
+      <div class="bracket-side bracket-right">
+        <div class="bracket-round">
+          <div class="bracket-round-title">Semifinal</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r2]?.[2], slot(r4,3), slot(r4,4))}
+          </div>
+        </div>
+        <div class="bracket-round">
+          <div class="bracket-round-title">Cuartos</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r4]?.[3], slot(r8,5), slot(r8,6))}
+            ${matchCard(porRonda[r4]?.[4], slot(r8,7), slot(r8,8))}
+          </div>
+        </div>
+        <div class="bracket-round">
+          <div class="bracket-round-title">Octavos</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r8]?.[5], slot(r16,9), slot(r16,10))}
+            ${matchCard(porRonda[r8]?.[6], slot(r16,11), slot(r16,12))}
+            ${matchCard(porRonda[r8]?.[7], slot(r16,13), slot(r16,14))}
+            ${matchCard(porRonda[r8]?.[8], slot(r16,15), slot(r16,16))}
+          </div>
+        </div>
+        <div class="bracket-round">
+          <div class="bracket-round-title">Dieciseisavos</div>
+          <div class="bracket-matches">
+            ${matchCard(porRonda[r16]?.[9],  {nombre:"Brasil", bandera:"🇧🇷"}, {nombre:"Japón", bandera:"🇯🇵"})}
+            ${matchCard(porRonda[r16]?.[10], {nombre:"Noruega", bandera:"🇳🇴"}, {nombre:"Costa de Marfil", bandera:"🇨🇮"})}
+            ${matchCard(porRonda[r16]?.[11], {nombre:"México", bandera:"🇲🇽"}, {nombre:"Ecuador", bandera:"🇪🇨"})}
+            ${matchCard(porRonda[r16]?.[12], {nombre:"Inglaterra", bandera:"🏴󠁧󠁢󠁥󠁮󠁧󠁿"}, {nombre:"Congo", bandera:"🇨🇩"})}
+            ${matchCard(porRonda[r16]?.[13], {nombre:"Argentina", bandera:"🇦🇷"}, {nombre:"Cabo Verde", bandera:"🇨🇻"})}
+            ${matchCard(porRonda[r16]?.[14], {nombre:"Australia", bandera:"🇦🇺"}, {nombre:"Egipto", bandera:"🇪🇬"})}
+            ${matchCard(porRonda[r16]?.[15], {nombre:"Suiza", bandera:"🇨🇭"}, {nombre:"Argelia", bandera:"🇩🇿"})}
+            ${matchCard(porRonda[r16]?.[16], {nombre:"Colombia", bandera:"🇨🇴"}, {nombre:"Ghana", bandera:"🇬🇭"})}
+          </div>
+        </div>
+      </div>
+
+    </div>`;
 }
 
 /* ---------- Standings ---------- */
