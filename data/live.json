@@ -1,7 +1,7 @@
 {
   "torneo": "Copa Mundial de la FIFA 2026",
   "estado_torneo": "en_curso",
-  "ultima_actualizacion": "2026-07-10T18:15:58.217862+00:00",
+  "ultima_actualizacion": "2026-07-10T21:26:55.503562+00:00",
   "paises": [
     "Chequia",
     "México",
@@ -2002,13 +2002,13 @@
       "utc": "2026-07-10T19:00:00Z",
       "fecha": "2026-07-10",
       "hora": "19:00",
-      "estado": "scheduled",
+      "estado": "finished",
       "local": "España",
       "bandera_local": "🇪🇸",
       "visitante": "Bélgica",
       "bandera_visitante": "🇧🇪",
-      "goles_local": null,
-      "goles_visitante": null,
+      "goles_local": 2,
+      "goles_visitante": 1,
       "estadio": "",
       "minuto": null,
       "id": 98
